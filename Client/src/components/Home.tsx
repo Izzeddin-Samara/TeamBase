@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import InputField from "./InputField";
 import React, { useState } from "react";
+import axios from "axios";
 
 // Define types for form data and errors
 type FormData = {
@@ -23,6 +24,10 @@ const Home: React.FC = () => {
     email: "",
     password: "",
   });
+
+  const [error, setError] = useState<string>("");
+  const [success, setSuccess] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -54,10 +59,30 @@ const Home: React.FC = () => {
     return isValid;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
-      console.log("Form submitted");
+      try {
+        setLoading(true)
+        // Make a POST request to the backend
+        const res = await axios.post(
+          "http://localhost:8000/api/users/login",
+          formData
+        );
+        console.log(res.data);
+
+        setFormData({
+          email: "",
+          password: "",
+        });
+        setError(""); // Clear any error messages
+        setSuccess("Login successful!"); // Display success message
+      } catch (err) {
+        setError("Login failed. Please check your credentials."); // Display error message
+        setSuccess(""); // Clear success message
+      } finally {
+        setLoading(false)
+      }
     }
   };
 
@@ -67,13 +92,17 @@ const Home: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 md:gap-30">
           <div className="items-center flex mb-20 justify-center">
             <div className="text-center mt-20 md:mt-0">
-              <h1 className="text-4xl font-extrabold lg:text-5xl text-blue-800">
+              <h1 className="text-3xl font-extrabold lg:text-5xl text-blue-800">
                 Welcome to Postly
               </h1>
-              <p className="text-xl mt-4 text-gray-500">Share your thoughts with the world</p>
+              <p className="text-sm mt-4 text-gray-500">
+                Share your thoughts with the world
+              </p>
             </div>
           </div>
           <div className="rounded-xl md:w-3/4 mx-auto">
+          {error && <p className="text-red-700 text-center">{error}</p>} {/* Display error */}
+      {success && <p className="text-green-700 text-center">{success}</p>} {/* Display success */}
             <form onSubmit={handleSubmit}>
               <div>
                 <InputField
@@ -103,7 +132,7 @@ const Home: React.FC = () => {
                 type="submit"
                 className="bg-blue-800 font-bold hover:bg-blue-900 p-3 w-full mt-8 text-md text-white rounded-lg focus:ring-5 focus:ring-blue-300 cursor-pointer"
               >
-                Log In
+                {loading? "Logining in ..." : "Login"  }
               </button>
             </form>
             <div className="w-full h-0.5 bg-gray-400 mt-10"></div>
