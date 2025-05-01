@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const userRoutes = require('./routes/userroutes'); // Import user routes
 require('./config/db'); // Connects to MongoDB
 
 
@@ -11,6 +12,8 @@ app.use(express.json()); // Allows JSON parsing
 
 
 
+
+app.use('/api/users', userRoutes);
 
 // Start the server
 app.listen(8000, () => {
