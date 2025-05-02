@@ -92,11 +92,11 @@ const Home: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 md:gap-30">
           <div className="items-center flex mb-20 justify-center">
             <div className="text-center mt-20 md:mt-0">
-              <h1 className="text-3xl font-extrabold lg:text-5xl text-blue-800">
-                Welcome to Postly
+              <h1 className="text-3xl font-extrabold lg:text-4xl">
+                Welcome to Team<span className="text-blue-800">Base</span>
               </h1>
-              <p className="text-sm mt-4 text-gray-500">
-                Share your thoughts with the world
+              <p className="text-lg mt-4 text-gray-500">
+              The smart way to manage your team
               </p>
             </div>
           </div>
