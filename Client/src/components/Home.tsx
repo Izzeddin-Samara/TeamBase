@@ -63,7 +63,7 @@ const Home: React.FC = () => {
     e.preventDefault();
     if (validateForm()) {
       try {
-        setLoading(true)
+        setLoading(true);
         // Make a POST request to the backend
         const res = await axios.post(
           "http://localhost:8000/api/users/login",
@@ -81,28 +81,33 @@ const Home: React.FC = () => {
         setError("Login failed. Please check your credentials."); // Display error message
         setSuccess(""); // Clear success message
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
     }
   };
 
   return (
     <div className="w-full h-screen flex items-center p-4">
-      <div className="max-w-7xl mx-auto bg-blue-50 rounded-2xl shadow-xl shadow-blue-900/15 p-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 md:gap-30">
-          <div className="items-center flex mb-20 justify-center">
-            <div className="text-center mt-20 md:mt-0">
+      <div className="max-w-7xl mx-auto bg-blue-50 rounded-2xl shadow-xl shadow-blue-900/15 p-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:col-2 md:gap-20">
+          <div className="md:flex md:items-center">
+            <div className="text-center mt-10 md:mb-10 md:mt-0">
               <h1 className="text-3xl font-extrabold lg:text-4xl">
                 Welcome to Team<span className="text-blue-800">Base</span>
               </h1>
               <p className="text-lg mt-4 text-gray-500">
-              The smart way to manage your team
+                The smart way to manage your team
               </p>
             </div>
           </div>
-          <div className="rounded-xl md:w-3/4 mx-auto">
-          {error && <p className="text-red-700 text-center">{error}</p>} {/* Display error */}
-      {success && <p className="text-green-700 text-center">{success}</p>} {/* Display success */}
+
+          <div className="w-full mt-10 md:mt-0 rounded-xl md:w-3/4 mx-auto">
+            {error && <p className="text-red-700 text-center">{error}</p>}{" "}
+            {/* Display error */}
+            {success && (
+              <p className="text-green-700 text-center">{success}</p>
+            )}{" "}
+            {/* Display success */}
             <form onSubmit={handleSubmit}>
               <div>
                 <InputField
@@ -132,7 +137,7 @@ const Home: React.FC = () => {
                 type="submit"
                 className="bg-blue-800 font-bold hover:bg-blue-900 p-3 w-full mt-8 text-md text-white rounded-lg focus:ring-5 focus:ring-blue-300 cursor-pointer"
               >
-                {loading? "Logining in ..." : "Login"  }
+                {loading ? "Logining in ..." : "Login"}
               </button>
             </form>
             <div className="w-full h-0.5 bg-gray-400 mt-10"></div>
