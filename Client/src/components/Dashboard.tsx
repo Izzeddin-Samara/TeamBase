@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 type Employee = {
   _id: string;
-  employeeId: string
+  employeeId: string;
   fullName: string;
   jobTitle: string;
   email: string;
@@ -18,11 +19,20 @@ type Employee = {
 const Dashboard: React.FC = () => {
   const [employees, setEmployees] = useState<Employee[]>([]);
   const [error, setError] = useState<string>("");
+  const navigate = useNavigate();
 
   useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (!storedUser) {
+      navigate("/"); // Not logged in, redirect to home/login
+      return;
+    }
+
     const fetchEmployees = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/employees");
+        const res = await axios.get("http://localhost:8000/api/employees", {
+          withCredentials: true,
+        });
         setEmployees(res.data);
       } catch (err) {
         console.error("Failed to fetch employees:", err);
@@ -31,7 +41,7 @@ const Dashboard: React.FC = () => {
     };
 
     fetchEmployees();
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="p-6">
