@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import InputField from "./InputField";
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 // Define types for form data and errors
 type FormData = {
@@ -28,6 +29,8 @@ const Home: React.FC = () => {
   const [error, setError] = useState<string>("");
   const [success, setSuccess] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+  const navigate = useNavigate();
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -69,7 +72,7 @@ const Home: React.FC = () => {
           "http://localhost:8000/api/users/login",
           formData
         );
-        console.log(res.data);
+        console.log(res.data); // For debugging
 
         setFormData({
           email: "",
@@ -77,6 +80,8 @@ const Home: React.FC = () => {
         });
         setError(""); // Clear any error messages
         setSuccess("Login successful!"); // Display success message
+        localStorage.setItem("user", JSON.stringify(res.data.user));
+        navigate("/dashboard"); // Navigate to dashboard
       } catch (err) {
         setError("Login failed. Please check your credentials."); // Display error message
         setSuccess(""); // Clear success message
