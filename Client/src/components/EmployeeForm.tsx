@@ -43,6 +43,7 @@ const EmployeeForm: React.FC = () => {
   const [error, setError] = useState<string>("");
   const [success, setSuccess] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+  const [originalData, setOriginalData] = useState<FormData | null>(null);
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
@@ -65,16 +66,17 @@ const EmployeeForm: React.FC = () => {
         .get(`http://localhost:8000/api/employees/${employeeId}`)
         .then((response) => {
           const employee = response.data;
-
-          // Format the date
           const formattedDate = employee.hireDate
             ? new Date(employee.hireDate).toISOString().split("T")[0]
             : "";
 
-          setFormData({
+          const updatedData = {
             ...employee,
             hireDate: formattedDate,
-          });
+          };
+
+          setFormData(updatedData);
+          setOriginalData(updatedData); // Store original data for comparison
         })
         .catch(() => {
           setError("Failed to fetch employee data.");
@@ -97,6 +99,13 @@ const EmployeeForm: React.FC = () => {
 
     try {
       if (employeeId) {
+        if (JSON.stringify(formData) === JSON.stringify(originalData)) {
+          setSuccess("");
+          setError("No changes made.");
+          setLoading(false);
+          return;
+        }
+
         await axios.patch(
           `http://localhost:8000/api/employees/${employeeId}`,
           formData
@@ -106,10 +115,10 @@ const EmployeeForm: React.FC = () => {
         await axios.post("http://localhost:8000/api/employees", formData);
         setSuccess("Employee added successfully!");
       }
-      setError(""); // clear previous errors
-      // Handle success
+
+      setError("");
       setTimeout(() => {
-        navigate("/dashboard"); // Redirect to employee list after success
+        navigate("/dashboard");
       }, 1500);
     } catch (err: any) {
       console.error("Error saving employee:", err);
