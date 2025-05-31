@@ -4,7 +4,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const LogoutButton: React.FC = () => {
+interface LogoutButtonProps {
+  setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const LogoutButton: React.FC<LogoutButtonProps> = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const navigate = useNavigate();
 
