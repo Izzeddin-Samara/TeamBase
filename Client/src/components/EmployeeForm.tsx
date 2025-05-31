@@ -14,9 +14,7 @@ type FormData = {
   department: string;
   hireDate: string;
   salary: string;
-  workLocation: string;
   manager: string;
-  profilePicture: string;
   notes: string;
   user?: string;
 };
@@ -34,9 +32,7 @@ const EmployeeForm: React.FC = () => {
     department: "",
     hireDate: "",
     salary: "",
-    workLocation: "",
     manager: "",
-    profilePicture: "",
     notes: "",
   });
 
@@ -44,6 +40,7 @@ const EmployeeForm: React.FC = () => {
   const [success, setSuccess] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [originalData, setOriginalData] = useState<FormData | null>(null);
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
@@ -76,7 +73,7 @@ const EmployeeForm: React.FC = () => {
           };
 
           setFormData(updatedData);
-          setOriginalData(updatedData); // Store original data for comparison
+          setOriginalData(updatedData);
         })
         .catch(() => {
           setError("Failed to fetch employee data.");
@@ -84,18 +81,126 @@ const EmployeeForm: React.FC = () => {
     }
   }, [employeeId]);
 
+  const validateForm = (): boolean => {
+    const newErrors: { [key: string]: string } = {};
+
+    if (!formData.employeeId.trim()) {
+      newErrors.employeeId = "Employee ID is required.";
+    }
+
+    if (!formData.fullName.trim()) {
+      newErrors.fullName = "Full Name is required.";
+    } else {
+      const nameRegex = /^[A-Za-z\s]+$/;
+      if (!nameRegex.test(formData.fullName)) {
+        newErrors.fullName = "Invalid name format";
+      }
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required.";
+    } else {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email)) {
+        newErrors.email = "Invalid email address.";
+      }
+    }
+
+    if (formData.phoneNumber.trim()) {
+      const phoneRegex = /^\d+$/;
+      if (!phoneRegex.test(formData.phoneNumber)) {
+        newErrors.phoneNumber = "Phone number must contain digits only.";
+      }
+    }
+
+    if (!formData.jobTitle.trim()) {
+      newErrors.jobTitle = "Job Title is required.";
+    }
+
+    if (!formData.department.trim()) {
+      newErrors.department = "Department is required.";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
+
+    setFormData((prev) => ({
+      ...prev,
       [name]: value,
     }));
+
+    // Live validation
+    setErrors((prevErrors) => {
+      const newErrors = { ...prevErrors };
+
+      switch (name) {
+        case "employeeId":
+          if (!value.trim()) newErrors.employeeId = "Employee ID is required.";
+          else delete newErrors.employeeId;
+          break;
+
+        case "fullName":
+          if (!value.trim()) newErrors.fullName = "Full Name is required.";
+          else {
+            const nameRegex = /^[\p{L}\s]+$/u;
+            if (!nameRegex.test(value)) {
+              newErrors.fullName = "Invalid name format";
+            } else delete newErrors.fullName;
+          }
+          break;
+
+        case "email":
+          if (!value.trim()) {
+            newErrors.email = "Email is required.";
+          } else {
+            const emailRegex =
+              /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailRegex.test(value))
+              newErrors.email = "Invalid email address.";
+            else delete newErrors.email;
+          }
+          break;
+
+        case "phoneNumber":
+          if (value.trim()) {
+            const phoneRegex = /^\d+$/;
+            if (!phoneRegex.test(value))
+              newErrors.phoneNumber = "Phone number must contain digits only.";
+            else delete newErrors.phoneNumber;
+          } else {
+            delete newErrors.phoneNumber;
+          }
+          break;
+
+        case "jobTitle":
+          if (!value.trim()) newErrors.jobTitle = "Job Title is required.";
+          else delete newErrors.jobTitle;
+          break;
+
+        case "department":
+          if (!value.trim()) newErrors.department = "Department is required.";
+          else delete newErrors.department;
+          break;
+      }
+
+      return newErrors;
+    });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError("");
+    setErrors({}); 
+
+    if (!validateForm()) {
+      setLoading(false);
+      return; 
+    }
 
     try {
       if (employeeId) {
@@ -123,7 +228,6 @@ const EmployeeForm: React.FC = () => {
     } catch (err: any) {
       console.error("Error saving employee:", err);
       setSuccess("");
-      setError("Failed to save employee.");
     } finally {
       setLoading(false);
     }
@@ -131,7 +235,7 @@ const EmployeeForm: React.FC = () => {
 
   return (
     <div className="w-full h-screen flex items-center justify-center p-4">
-      <div className="max-w-4xl w-full bg-blue-50 rounded-2xl shadow-xl shadow-blue-900/15 p-8">
+      <div className="max-w-4xl w-full bg-blue-50 rounded-2xl shadow-2xl shadow-blue-900/15 p-8">
         <div className="flex items-center justify-between mb-8">
           <Link to="/dashboard">
             <button className="flex items-center gap-2 cursor-pointer text-xl text-blue-700 font-semibold hover:underline">
@@ -156,6 +260,7 @@ const EmployeeForm: React.FC = () => {
                   value={formData.employeeId}
                   onChange={handleChange}
                   name="employeeId"
+                  error={errors.employeeId}
                 />
                 <InputField
                   type="text"
@@ -163,6 +268,7 @@ const EmployeeForm: React.FC = () => {
                   value={formData.fullName}
                   onChange={handleChange}
                   name="fullName"
+                  error={errors.fullName}
                 />
               </div>
               <div className="flex gap-6 mb-2">
@@ -172,6 +278,7 @@ const EmployeeForm: React.FC = () => {
                   value={formData.email}
                   onChange={handleChange}
                   name="email"
+                  error={errors.email}
                 />
                 <InputField
                   type="tel"
@@ -179,6 +286,7 @@ const EmployeeForm: React.FC = () => {
                   value={formData.phoneNumber}
                   onChange={handleChange}
                   name="phoneNumber"
+                  error={errors.phoneNumber}
                 />
               </div>
               <div className="flex gap-6 mb-2">
@@ -188,6 +296,7 @@ const EmployeeForm: React.FC = () => {
                   value={formData.jobTitle}
                   onChange={handleChange}
                   name="jobTitle"
+                  error={errors.jobTitle}
                 />
                 <InputField
                   type="text"
@@ -195,6 +304,7 @@ const EmployeeForm: React.FC = () => {
                   value={formData.department}
                   onChange={handleChange}
                   name="department"
+                  error={errors.department}
                 />
               </div>
 
@@ -217,27 +327,10 @@ const EmployeeForm: React.FC = () => {
               <div className="flex gap-6 mb-2">
                 <InputField
                   type="text"
-                  placeholder="Work Location"
-                  value={formData.workLocation}
-                  onChange={handleChange}
-                  name="workLocation"
-                />
-                <InputField
-                  type="text"
                   placeholder="Manager"
                   value={formData.manager}
                   onChange={handleChange}
                   name="manager"
-                />
-              </div>
-
-              <div className="flex gap-6 mb-2">
-                <InputField
-                  type="text"
-                  placeholder="Profile Picture URL"
-                  value={formData.profilePicture}
-                  onChange={handleChange}
-                  name="profilePicture"
                 />
                 <InputField
                   type="text"
