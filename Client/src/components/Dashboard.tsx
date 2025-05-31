@@ -82,7 +82,7 @@ const Dashboard: React.FC = () => {
     <>
       <Navbar />
       <div className="p-6">
-        <h1 className="text-5xl font-extrabold mt-8 text-center mb-20">
+        <h1 className="text-3xl md:text-5xl font-extrabold mt-8 text-center mb-20">
           Employees List
         </h1>
 

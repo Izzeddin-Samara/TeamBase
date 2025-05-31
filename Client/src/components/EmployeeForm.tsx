@@ -238,13 +238,13 @@ const EmployeeForm: React.FC = () => {
       <div className="max-w-4xl w-full bg-blue-50 rounded-2xl shadow-2xl shadow-blue-900/15 p-8">
         <div className="flex items-center justify-between mb-8">
           <Link to="/dashboard">
-            <button className="flex items-center gap-2 cursor-pointer text-xl text-blue-700 font-semibold hover:underline">
+            <button className="flex items-center gap-2 cursor-pointer text-lg md:text-4xl text-blue-700 font-semibold hover:underline">
               <FaArrowLeft className="w-5 h-5" />
               Back
             </button>
           </Link>
-          <h1 className="text-4xl font-bold text-gray-800">
-            {employeeId ? "Edit Employee" : "Create Employee"}
+          <h1 className="text-2xl md:text-4xl font-bold text-gray-800">
+            {employeeId ? "Edit Employee" : "Add Employee"}
           </h1>
           <div className="w-14" />
         </div>
@@ -343,7 +343,7 @@ const EmployeeForm: React.FC = () => {
 
               <button
                 type="submit"
-                className="bg-blue-800 font-bold hover:bg-blue-900 p-3 w-2/4 mt-10 text-xl text-white rounded-lg focus:ring-5 focus:ring-blue-300 cursor-pointer"
+                className="bg-blue-800 font-bold hover:bg-blue-900 p-3 w-2/4 mt-10 text-md md:text-xl text-white rounded-lg focus:ring-5 focus:ring-blue-300 cursor-pointer"
               >
                 {loading
                   ? employeeId
