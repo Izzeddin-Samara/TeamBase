@@ -68,7 +68,7 @@ const Home: React.FC = () => {
         setLoading(true);
         // Make a POST request to the backend
         const res = await axios.post(
-          "http://teambase.onrender.com/api/users/login",
+          "https://teambase.onrender.com/api/users/login",
           formData
         );
         console.log(res.data); // For debugging
