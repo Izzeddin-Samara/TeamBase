@@ -84,7 +84,10 @@ const Signup: React.FC = () => {
     debounce(async (email: string) => {
       try {
         const res = await axios.get(
-          `https://teambase-production.up.railway.app/api/users/check-email/${email}`
+          `https://teambase-production.up.railway.app/api/users/check-email`,
+          {
+            params: { email },
+          }
         );
         if (res.data.exists) {
           setErrors((prev) => ({ ...prev, email: "Email already in use" }));
@@ -212,7 +215,6 @@ const Signup: React.FC = () => {
                 name="lastName"
                 error={errors.lastName}
               />
-              
             </div>
 
             <div className="mt-2">
