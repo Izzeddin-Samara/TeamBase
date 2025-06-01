@@ -84,7 +84,7 @@ const Signup: React.FC = () => {
     debounce(async (email: string) => {
       try {
         const res = await axios.get(
-          `http://teambase-production.up.railway.app/api/users/check-email/${email}`
+          `https://teambase-production.up.railway.app/api/users/check-email/${email}`
         );
         if (res.data.exists) {
           setErrors((prev) => ({ ...prev, email: "Email already in use" }));
@@ -146,7 +146,7 @@ const Signup: React.FC = () => {
       try {
         setLoading(true);
         const res = await axios.post(
-          "http://teambase-production.up.railway.app/api/users/register",
+          "https://teambase-production.up.railway.app/api/users/register",
           formData
         );
         console.log(res.data);
