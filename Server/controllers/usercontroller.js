@@ -60,4 +60,18 @@ module.exports = {
     res.clearCookie("usertoken");
     res.json({ msg: "Logged out successfully" });
   },
+
+  // checkEmail Function
+  checkEmail: async (req, res) => {
+    const { email } = req.params;
+    const { excludeId } = req.query;
+
+    try {
+      const user = await User.findOne({ email });
+      const exists = user && user._id.toString() !== excludeId;
+      res.json({ exists });
+    } catch (err) {
+      res.status(500).json({ error: "Server error" });
+    }
+  },
 };
