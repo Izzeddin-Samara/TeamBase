@@ -63,7 +63,7 @@ module.exports = {
 
   // checkEmail Function
   checkEmail: async (req, res) => {
-    const { email } = req.params;
+    const { email } = req.query;
     const { excludeId } = req.query;
 
     try {
