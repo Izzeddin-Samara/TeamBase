@@ -71,6 +71,7 @@ module.exports = {
       const exists = user && user._id.toString() !== excludeId;
       res.json({ exists });
     } catch (err) {
+      console.error("Error in checkEmail:", err);
       res.status(500).json({ error: "Server error" });
     }
   },
