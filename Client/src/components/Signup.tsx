@@ -84,7 +84,7 @@ const Signup: React.FC = () => {
     debounce(async (email: string) => {
       try {
         const res = await axios.get(
-          `https://teambase-production.up.railway.app/api/users/check-email`,
+          `https://teambase-production.up.railway.app/api/users/check-email/${email}`,
           {
             params: { email },
           }
