@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <nav className="w-full mt-8 ">
-      <div className="max-w-[80%] mx-auto flex justify-between items-center h-20">
+      <div className="max-w-[80%] mx-auto flex justify-between items-center h-7">
         <Link to="/">
           <h1 className="text-3xl md:text-5xl font-bold cursor-pointer">
             Team<span className="text-blue-800">Base</span>
@@ -40,13 +40,13 @@ const Navbar = () => {
             <>
               <Link
                 to="/login"
-                className="bg-blue-800 font-bold hover:bg-blue-900 p-3 md:p-5 text-md md:text-xl text-white rounded-lg focus:ring-4 focus:ring-blue-300 cursor-pointer"
+                className="bg-blue-800 font-bold hover:bg-blue-900 p-3 md:p-4 text-md md:text-lg text-white rounded-lg focus:ring-4 focus:ring-blue-300 cursor-pointer"
               >
                 Login
               </Link>
               <Link
                 to="/signup"
-                className="bg-gray-800 font-bold hover:bg-gray-950 p-3 md:p-5 text-md md:text-xl text-white rounded-lg focus:ring-4 focus:ring-blue-300 cursor-pointer"
+                className="bg-gray-800 font-bold hover:bg-gray-950 p-3 md:p-4 text-md md:text-lg text-white rounded-lg focus:ring-4 focus:ring-blue-300 cursor-pointer"
               >
                 Sign Up
               </Link>
@@ -57,7 +57,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white shadow-lg py-4 px-6 flex flex-col space-y-4 max-w-[80%] mx-auto">
+        <div className="md:hidden bg-white shadow-lg py-4 px-6 flex flex-col mt-10 space-y-4 max-w-[80%] mx-auto">
           {isLoggedIn ? (
             <LogoutButton setIsLoggedIn={setIsLoggedIn} />
           ) : (
