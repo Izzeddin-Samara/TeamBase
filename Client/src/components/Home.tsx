@@ -92,9 +92,6 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      <footer className="mt-20">
-        <p className="text-center">© 2025 TeamBase. All rights reserved.</p>
-      </footer>
     </>
   );
 };
