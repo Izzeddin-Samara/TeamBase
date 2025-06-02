@@ -4,6 +4,7 @@ import Signup from "./components/Signup";
 import Dashboard from "./components/Dashboard";
 import EmployeeForm from "./components/EmployeeForm";
 import Home from "./components/Home";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/employee/:id" element={<EmployeeForm />} />
 
         </Routes>
+        <Footer/>
       </Router>
     </>
   )
