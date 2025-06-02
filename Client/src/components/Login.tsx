@@ -92,22 +92,14 @@ const Home: React.FC = () => {
 
   return (
     <>
-    <Navbar/>
-      <div className="w-full h-screen flex items-center p-4">
-        <div className="max-w-7xl mx-auto bg-blue-50 rounded-2xl shadow-xl shadow-blue-900/15 p-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:col-2 md:gap-20">
-            <div className="md:flex md:items-center">
-              <div className="text-center mt-10 md:mb-10 md:mt-0">
-                <h1 className="text-3xl font-extrabold lg:text-4xl">
-                  Welcome to Team<span className="text-blue-800">Base</span>
-                </h1>
-                <p className="text-lg mt-4 text-gray-500">
-                  The smart way to manage your team
-                </p>
-              </div>
-            </div>
-
-            <div className="w-full mt-10 md:mt-0 rounded-xl md:w-3/4 mx-auto">
+      <Navbar />
+      <div className="w-full h-screen flex items-start p-4 mt-30">
+        <div className="max-w-md w-full mx-auto bg-blue-50 rounded-2xl shadow-xl shadow-blue-900/15 p-8">
+          <div className="grid grid-cols-1">
+            <h1 className="text-center text-3xl font-bold mb-4">
+              Login to your Account
+            </h1>
+            <div className="w-full md:mt-0 rounded-xl md4 mx-auto">
               {error && <p className="text-red-700 text-center">{error}</p>}{" "}
               {/* Display error */}
               {success && (
@@ -124,7 +116,9 @@ const Home: React.FC = () => {
                     name="email"
                   />
                   {errors.email && (
-                    <p className="text-red-600 text-sm">{errors.email}</p>
+                    <p className="text-red-600 text-sm text-center mt-2">
+                      {errors.email}
+                    </p>
                   )}
                 </div>
                 <div className="mt-2">
@@ -136,19 +130,21 @@ const Home: React.FC = () => {
                     name="password"
                   />
                   {errors.password && (
-                    <p className="text-red-600 text-sm">{errors.password}</p>
+                    <p className="text-red-600 text-sm text-center mt-2">
+                      {errors.password}
+                    </p>
                   )}
                 </div>
                 <button
                   type="submit"
-                  className="bg-blue-800 font-bold hover:bg-blue-900 p-3 w-full mt-8 text-md text-white rounded-lg focus:ring-5 focus:ring-blue-300 cursor-pointer"
+                  className="bg-blue-800 font-bold hover:bg-blue-900 p-3 md:p-5 w-full mt-8 text-lg text-white rounded-lg focus:ring-5 focus:ring-blue-300 cursor-pointer"
                 >
                   {loading ? "Logining in ..." : "Login"}
                 </button>
               </form>
               <div className="w-full h-0.5 bg-gray-400 mt-10"></div>
               <Link to="/signup">
-                <button className="bg-gray-800 hover:bg-gray-950 font-bold p-3 w-full mt-8 text-md text-white rounded-lg focus:ring-5 focus:ring-gray-300 cursor-pointer">
+                <button className="bg-gray-800 hover:bg-gray-950 font-bold md:p-5 p-3 w-full mt-8 text-lg text-white rounded-lg focus:ring-5 focus:ring-gray-300 cursor-pointer">
                   Create new account
                 </button>
               </Link>
