@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <nav className="w-full mt-8 ">
-      <div className="max-w-[80%] mx-auto flex justify-between items-center h-7">
+      <div className="max-w-[95%] mx-auto flex justify-between items-center h-7">
         <Link to="/">
           <h1 className="text-3xl md:text-5xl font-bold cursor-pointer">
             Team<span className="text-blue-800">Base</span>
