@@ -94,9 +94,9 @@ const Home: React.FC = () => {
     <>
       <Navbar />
       <div className="w-full h-screen flex items-start p-4 mt-30">
-        <div className="max-w-md w-full mx-auto bg-blue-50 rounded-2xl shadow-xl shadow-blue-900/15 p-8">
+        <div className="max-w-sm w-full mx-auto bg-blue-50 rounded-2xl shadow-xl shadow-blue-900/15 p-8">
           <div className="grid grid-cols-1">
-            <h1 className="text-center text-3xl font-bold mb-4">
+            <h1 className="text-center text-2xl font-bold mb-4">
               Login to your Account
             </h1>
             <div className="w-full md:mt-0 rounded-xl md4 mx-auto">
@@ -137,14 +137,14 @@ const Home: React.FC = () => {
                 </div>
                 <button
                   type="submit"
-                  className="bg-blue-800 font-bold hover:bg-blue-900 p-3 md:p-5 w-full mt-8 text-lg text-white rounded-lg focus:ring-5 focus:ring-blue-300 cursor-pointer"
+                  className="bg-blue-800 font-bold hover:bg-blue-900 p-3 md:p-4 w-full mt-8 text-md text-white rounded-lg focus:ring-5 focus:ring-blue-300 cursor-pointer"
                 >
                   {loading ? "Logining in ..." : "Login"}
                 </button>
               </form>
               <div className="w-full h-0.5 bg-gray-400 mt-10"></div>
               <Link to="/signup">
-                <button className="bg-gray-800 hover:bg-gray-950 font-bold md:p-5 p-3 w-full mt-8 text-lg text-white rounded-lg focus:ring-5 focus:ring-gray-300 cursor-pointer">
+                <button className="bg-gray-800 hover:bg-gray-950 font-bold md:p-4 p-3 w-full mt-8 text-md text-white rounded-lg focus:ring-5 focus:ring-gray-300 cursor-pointer">
                   Create new account
                 </button>
               </Link>
