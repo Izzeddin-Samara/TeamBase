@@ -9,7 +9,7 @@ const Home: React.FC = () => {
   return (
     <>
       <Navbar />
-      <div className="flex items-center h-[500px]">
+      <div className="flex items-center h-[600px]">
         <div className="text-center w-full">
           <h1 className="text-4xl  mx-auto font-bold sm:text-6xl lg:text-7xl leading-tight">
             Your Team, Organized.
@@ -21,7 +21,7 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      <div className="w-full mt-[30px] py-16">
+      <div className="w-full mt-25 py-16">
         <div className="max-w-6xl mx-auto p-4">
           <h1 className="text-3xl md:text-5xl font-bold text-center mb-16">
             Why TeamBase?
