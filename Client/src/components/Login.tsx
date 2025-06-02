@@ -68,7 +68,7 @@ const Home: React.FC = () => {
         setLoading(true);
         // Make a POST request to the backend
         const res = await axios.post(
-          "https://eambase-production.up.railway.app/api/users/login",
+          "https://teambase-production.up.railway.app/api/users/login",
           formData
         );
         console.log(res.data); // For debugging
