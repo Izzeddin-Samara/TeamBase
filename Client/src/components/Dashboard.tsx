@@ -84,7 +84,7 @@ const Dashboard: React.FC = () => {
     <>
       <Navbar />
       <div className="p-6 mb-57">
-        <h1 className="text-3xl md:text-5xl font-extrabold mt-8 text-center mb-20">
+        <h1 className="text-3xl md:text-5xl font-extrabold mt-30 text-center mb-20">
           Employees List
         </h1>
 
@@ -99,7 +99,7 @@ const Dashboard: React.FC = () => {
             <input
               type="text"
               placeholder="Search by name, email, ID, etc."
-              className="w-full pl-10 pr-4 py-2 border text-lg border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full pl-10 pr-4 py-2 border text-lg border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-3 focus:ring-blue-800"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -124,7 +124,7 @@ const Dashboard: React.FC = () => {
 
           <button
             onClick={() => navigate("/employee")}
-            className="bg-gray-800 hover:bg-gray-900 font-bold p-3 w-48 mt-8 text-md text-white rounded-lg focus:ring-5 mr-8 focus:ring-gray-300 cursor-pointer"
+            className="bg-gray-800 hover:bg-gray-900 font-bold p-3 w-48 text-md text-white rounded-lg focus:ring-5 mr-8 focus:ring-gray-300 cursor-pointer"
           >
             + Add New
           </button>
