@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import InputField from "./InputField";
 import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
+import Navbar from "./Navbar";
 
 type FormData = {
   employeeId: string;
@@ -195,11 +196,11 @@ const EmployeeForm: React.FC = () => {
     e.preventDefault();
     setLoading(true);
     setError("");
-    setErrors({}); 
+    setErrors({});
 
     if (!validateForm()) {
       setLoading(false);
-      return; 
+      return;
     }
 
     try {
@@ -217,7 +218,10 @@ const EmployeeForm: React.FC = () => {
         );
         setSuccess("Employee updated successfully!");
       } else {
-        await axios.post("https://teambase-production.up.railway.app/api/employees", formData);
+        await axios.post(
+          "https://teambase-production.up.railway.app/api/employees",
+          formData
+        );
         setSuccess("Employee added successfully!");
       }
 
@@ -234,130 +238,133 @@ const EmployeeForm: React.FC = () => {
   };
 
   return (
-    <div className="w-full h-screen flex items-center justify-center p-4">
-      <div className="max-w-4xl w-full bg-blue-50 rounded-2xl shadow-2xl shadow-blue-900/15 p-8">
-        <div className="flex items-center justify-between mb-8">
-          <Link to="/dashboard">
-            <button className="flex items-center gap-2 cursor-pointer text-lg md:text-4xl text-blue-700 font-semibold hover:underline">
-              <FaArrowLeft className="w-5 h-5" />
-              Back
-            </button>
-          </Link>
-          <h1 className="text-2xl md:text-4xl font-bold text-gray-800">
-            {employeeId ? "Edit Employee" : "Add Employee"}
-          </h1>
-          <div className="w-14" />
-        </div>
-        {error && <p className="text-red-700 text-center">{error}</p>}
-        {success && <p className="text-green-700 text-center">{success}</p>}
-        <div className="grid grid-cols-1 gap-4 mt-8">
-          <div className="w-full rounded-xl mx-auto">
-            <form onSubmit={handleSubmit} className="text-center">
-              <div className="flex gap-6 mb-2">
-                <InputField
-                  type="text"
-                  placeholder="Employee ID"
-                  value={formData.employeeId}
-                  onChange={handleChange}
-                  name="employeeId"
-                  error={errors.employeeId}
-                />
-                <InputField
-                  type="text"
-                  placeholder="Full Name"
-                  value={formData.fullName}
-                  onChange={handleChange}
-                  name="fullName"
-                  error={errors.fullName}
-                />
-              </div>
-              <div className="flex gap-6 mb-2">
-                <InputField
-                  type="email"
-                  placeholder="Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  name="email"
-                  error={errors.email}
-                />
-                <InputField
-                  type="tel"
-                  placeholder="Phone Number"
-                  value={formData.phoneNumber}
-                  onChange={handleChange}
-                  name="phoneNumber"
-                  error={errors.phoneNumber}
-                />
-              </div>
-              <div className="flex gap-6 mb-2">
-                <InputField
-                  type="text"
-                  placeholder="Job Title"
-                  value={formData.jobTitle}
-                  onChange={handleChange}
-                  name="jobTitle"
-                  error={errors.jobTitle}
-                />
-                <InputField
-                  type="text"
-                  placeholder="Department"
-                  value={formData.department}
-                  onChange={handleChange}
-                  name="department"
-                  error={errors.department}
-                />
-              </div>
-
-              <div className="flex gap-6 mb-2">
-                <InputField
-                  type="date"
-                  placeholder="Hire Date"
-                  value={formData.hireDate}
-                  onChange={handleChange}
-                  name="hireDate"
-                />
-                <InputField
-                  type="text"
-                  placeholder="Salary"
-                  value={formData.salary}
-                  onChange={handleChange}
-                  name="salary"
-                />
-              </div>
-              <div className="flex gap-6 mb-2">
-                <InputField
-                  type="text"
-                  placeholder="Manager"
-                  value={formData.manager}
-                  onChange={handleChange}
-                  name="manager"
-                />
-                <InputField
-                  type="text"
-                  placeholder="Notes"
-                  value={formData.notes}
-                  onChange={handleChange}
-                  name="notes"
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="bg-blue-800 font-bold hover:bg-blue-900 p-3 w-2/4 mt-10 text-md md:text-xl text-white rounded-lg focus:ring-5 focus:ring-blue-300 cursor-pointer"
-              >
-                {loading
-                  ? employeeId
-                    ? "Updating employee ..."
-                    : "Adding employee ..."
-                  : employeeId
-                  ? "Update Employee"
-                  : "Add Employee"}
+    <>
+    <Navbar/>
+      <div className="w-full min-h-screen flex items-center justify-center p-4">
+        <div className="max-w-2xl w-full bg-blue-50 rounded-2xl shadow-2xl shadow-blue-900/15 p-8 mt-10">
+          <div className="flex items-center justify-between mb-8">
+            <Link to="/dashboard">
+              <button className="flex items-center gap-2 cursor-pointer text-sm md:text-md text-blue-700 font-semibold hover:underline">
+                <FaArrowLeft className="w-5 h-5" />
+                Back
               </button>
-            </form>
+            </Link>
+            <h1 className="text-xl md:text-2xl font-bold text-gray-800">
+              {employeeId ? "Edit Employee" : "Add Employee"}
+            </h1>
+            <div className="w-14" />
+          </div>
+          {error && <p className="text-red-700 text-center">{error}</p>}
+          {success && <p className="text-green-700 text-center">{success}</p>}
+          <div className="grid grid-cols-1 gap-4 mt-8">
+            <div className="w-full rounded-xl mx-auto">
+              <form onSubmit={handleSubmit} className="text-center">
+                <div className="flex flex-col md:flex-row md:gap-6 md:mb-2">
+                  <InputField
+                    type="text"
+                    placeholder="Employee ID"
+                    value={formData.employeeId}
+                    onChange={handleChange}
+                    name="employeeId"
+                    error={errors.employeeId}
+                  />
+                  <InputField
+                    type="text"
+                    placeholder="Full Name"
+                    value={formData.fullName}
+                    onChange={handleChange}
+                    name="fullName"
+                    error={errors.fullName}
+                  />
+                </div>
+                <div className="flex flex-col md:flex-row md:gap-6 md:mb-2">
+                  <InputField
+                    type="email"
+                    placeholder="Email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    name="email"
+                    error={errors.email}
+                  />
+                  <InputField
+                    type="tel"
+                    placeholder="Phone Number"
+                    value={formData.phoneNumber}
+                    onChange={handleChange}
+                    name="phoneNumber"
+                    error={errors.phoneNumber}
+                  />
+                </div>
+                <div className="flex flex-col md:flex-row md:gap-6 md:mb-2">
+                  <InputField
+                    type="text"
+                    placeholder="Job Title"
+                    value={formData.jobTitle}
+                    onChange={handleChange}
+                    name="jobTitle"
+                    error={errors.jobTitle}
+                  />
+                  <InputField
+                    type="text"
+                    placeholder="Department"
+                    value={formData.department}
+                    onChange={handleChange}
+                    name="department"
+                    error={errors.department}
+                  />
+                </div>
+
+                <div className="flex flex-col md:flex-row md:gap-6 md:mb-2">
+                  <InputField
+                    type="date"
+                    placeholder="Hire Date"
+                    value={formData.hireDate}
+                    onChange={handleChange}
+                    name="hireDate"
+                  />
+                  <InputField
+                    type="text"
+                    placeholder="Salary"
+                    value={formData.salary}
+                    onChange={handleChange}
+                    name="salary"
+                  />
+                </div>
+                <div className="flex flex-col md:flex-row md:gap-6 md:mb-2">
+                  <InputField
+                    type="text"
+                    placeholder="Manager"
+                    value={formData.manager}
+                    onChange={handleChange}
+                    name="manager"
+                  />
+                  <InputField
+                    type="text"
+                    placeholder="Notes"
+                    value={formData.notes}
+                    onChange={handleChange}
+                    name="notes"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="bg-blue-800 font-bold hover:bg-blue-900 p-3 w-2/4 mt-10 text-sm md:text-md text-white rounded-lg focus:ring-5 focus:ring-blue-300 cursor-pointer"
+                >
+                  {loading
+                    ? employeeId
+                      ? "Updating employee ..."
+                      : "Adding employee ..."
+                    : employeeId
+                    ? "Update Employee"
+                    : "Add Employee"}
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
