@@ -78,8 +78,8 @@ const Home: React.FC = () => {
 
       <div className="md:mt-30 w-full flex  items-center justify-center py-20">
         <div className="text-center">
-          <h1 className="text-xl md:text-4xl  font-bold w-full mx-auto">
-            Tired of juggling spreadsheets and losing track of your team’s info?
+          <h1 className="text-xl md:text-4xl  font-bold w-3/4 mx-auto">
+            Frustrated with juggling multiple spreadsheets and losing control over your team’s data management?
           </h1>
           <p className="text-xs md:text-xl mt-8 p-1 ">
             Try TeamBase and simplify the way you work
