@@ -5,6 +5,7 @@ import axios from "axios";
 import debounce from "lodash.debounce";
 import { FaCheckCircle } from "react-icons/fa";
 import { FaExclamationCircle } from "react-icons/fa";
+import Navbar from "./Navbar";
 
 type FormData = {
   firstName: string;
@@ -176,97 +177,100 @@ const Signup: React.FC = () => {
   };
 
   return (
-    <div className="w-full min-h-screen flex items-center justify-center p-4 sm:p-8 md:p-14">
-      <div className="w-full max-w-full sm:max-w-xl mx-auto bg-purple-50 p-8 rounded-2xl shadow-blue-900/15 shadow-xl">
-        <div className="grid grid-cols-1">
-          <h1 className="text-center text-2xl md:text-4xl font-bold mb-8">
-            Create New Account
-          </h1>
+    <>
+    <Navbar/>
+      <div className="w-full min-h-screen flex items-start justify-center p-4 sm:p-8 md:p-14">
+        <div className="w-full max-w-full sm:max-w-xl mx-auto bg-purple-50 p-8 rounded-2xl shadow-blue-900/15 shadow-xl">
+          <div className="grid grid-cols-1">
+            <h1 className="text-center text-2xl md:text-4xl font-bold mb-8">
+              Create New Account
+            </h1>
 
-          {error && (
-            <div className="bg-red-100 text-lg text-red-800 p-3 rounded-md border border-red-300 text-center flex gap-2 justify-center">
-              <FaExclamationCircle size={20} className="mt-1" /> {error}
-            </div>
-          )}
-          {success && (
-            <div className="bg-green-100 text-lg text-green-800 p-3 rounded-md border border-green-300 text-center flex gap-2 justify-center">
-              {success} <FaCheckCircle size={20} className="mt-1" />
-            </div>
-          )}
+            {error && (
+              <div className="bg-red-100 text-lg text-red-800 p-3 rounded-md border border-red-300 text-center flex gap-2 justify-center">
+                <FaExclamationCircle size={20} className="mt-1" /> {error}
+              </div>
+            )}
+            {success && (
+              <div className="bg-green-100 text-lg text-green-800 p-3 rounded-md border border-green-300 text-center flex gap-2 justify-center">
+                {success} <FaCheckCircle size={20} className="mt-1" />
+              </div>
+            )}
 
-          <form onSubmit={handleSubmit} className="text-center">
-            <div>
-              <InputField
-                type="text"
-                placeholder="First Name"
-                value={formData.firstName}
-                onChange={handleChange}
-                name="firstName"
-                error={errors.firstName}
-              />
-            </div>
+            <form onSubmit={handleSubmit} className="text-center">
+              <div>
+                <InputField
+                  type="text"
+                  placeholder="First Name"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  name="firstName"
+                  error={errors.firstName}
+                />
+              </div>
 
-            <div className="mt-2">
-              <InputField
-                type="text"
-                placeholder="Last Name"
-                value={formData.lastName}
-                onChange={handleChange}
-                name="lastName"
-                error={errors.lastName}
-              />
-            </div>
+              <div className="mt-2">
+                <InputField
+                  type="text"
+                  placeholder="Last Name"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  name="lastName"
+                  error={errors.lastName}
+                />
+              </div>
 
-            <div className="mt-2">
-              <InputField
-                type="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={handleChange}
-                name="email"
-                error={errors.email}
-              />
-            </div>
+              <div className="mt-2">
+                <InputField
+                  type="email"
+                  placeholder="Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  name="email"
+                  error={errors.email}
+                />
+              </div>
 
-            <div className="mt-2">
-              <InputField
-                type="password"
-                placeholder="Password"
-                value={formData.password}
-                onChange={handleChange}
-                name="password"
-                error={errors.password}
-              />
-            </div>
+              <div className="mt-2">
+                <InputField
+                  type="password"
+                  placeholder="Password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  name="password"
+                  error={errors.password}
+                />
+              </div>
 
-            <div className="mt-2">
-              <InputField
-                type="password"
-                placeholder="Confirm Password"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                name="confirmPassword"
-                error={errors.confirmPassword}
-              />
-            </div>
+              <div className="mt-2">
+                <InputField
+                  type="password"
+                  placeholder="Confirm Password"
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                  name="confirmPassword"
+                  error={errors.confirmPassword}
+                />
+              </div>
 
-            <button
-              className="bg-blue-800 font-bold hover:bg-blue-900 p-3 md:p-5 w-full mt-8 text-md md:text-xl text-white rounded-lg focus:ring-4 focus:ring-blue-300 cursor-pointer"
-              type="submit"
-            >
-              {loading ? "Signing up ..." : "Sign up"}
-            </button>
+              <button
+                className="bg-blue-800 font-bold hover:bg-blue-900 p-3 md:p-5 w-full mt-8 text-md md:text-xl text-white rounded-lg focus:ring-4 focus:ring-blue-300 cursor-pointer"
+                type="submit"
+              >
+                {loading ? "Signing up ..." : "Sign up"}
+              </button>
 
-            <p className="text-center text-xs md:text-lg mt-8">
-              Already have an account?{" "}
-              <Link className="text-blue-800 hover:underline ml-1" to="/">
-                Sign in
-              </Link>
-            </p>
-          </form>
+              <p className="text-center text-xs md:text-lg mt-8">
+                Already have an account?{" "}
+                <Link className="text-blue-800 hover:underline ml-1" to="/">
+                  Sign in
+                </Link>
+              </p>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
