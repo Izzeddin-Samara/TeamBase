@@ -20,6 +20,7 @@ module.exports = {
       .save()
       .then((user) => res.json({ msg: "Success!", user }))
       .catch((err) => res.status(400).json(err));
+      console.log(err)
   },
 
   // Login Function
