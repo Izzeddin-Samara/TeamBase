@@ -25,13 +25,13 @@ const InputField: React.FC<InputProps> = ({
         value={value}
         onChange={onChange}
         name={name}
-        className={`w-full border border-gray-300 outline-none focus:ring-3 text-sm md:text-lg md:p-4 p-4 rounded-lg focus:ring-blue-800 mt-4 ${
+        className={`w-full border border-gray-300 outline-none focus:ring-3 text-sm md:text-md md:p-4 p-4 rounded-lg focus:ring-blue-800 mt-4 ${
           error
             ? "border-red-600 focus:ring-red-600"
             : "border-gray-300 focus:ring-blue-800"
         }`}
       />
-      {error && <span className="text-red-600 text-sm mt-1">{error}</span>}
+      {error && <span className="text-red-600 text-xs mt-1">{error}</span>}
     </div>
   );
 };
