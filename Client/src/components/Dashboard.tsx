@@ -41,7 +41,9 @@ const Dashboard: React.FC = () => {
 
     const fetchEmployees = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/employees");
+        const res = await axios.get(
+          "https://teambase-production.up.railway.app/api/employees"
+        );
         setEmployees(res.data);
       } catch (err) {
         console.error("Failed to fetch employees:", err);
@@ -56,7 +58,7 @@ const Dashboard: React.FC = () => {
     if (!selectedEmployee) return;
     try {
       await axios.delete(
-        `http://localhost:8000/api/employees/${selectedEmployee._id}`
+        `https://teambase-production.up.railway.app/api/employees/${selectedEmployee._id}`
       );
       setEmployees((prev) =>
         prev.filter((emp) => emp._id !== selectedEmployee._id)
@@ -81,7 +83,7 @@ const Dashboard: React.FC = () => {
   return (
     <>
       <Navbar />
-      <div className="p-6">
+      <div className="p-6 mb-57">
         <h1 className="text-3xl md:text-5xl font-extrabold mt-8 text-center mb-20">
           Employees List
         </h1>
@@ -129,9 +131,27 @@ const Dashboard: React.FC = () => {
         </div>
 
         {filteredEmployees.length === 0 ? (
-          <p className="text-center text-lg text-gray-500 mt-10">
-            No employees added yet.
-          </p>
+          <div>
+            <table className="w-full table-auto border-collapse mt-8">
+              <thead>
+                <tr className="bg-gray-400 text-white text-md text-center uppercase tracking-wide">
+                  <th className="px-4 py-3 w-8">ID</th>
+                  <th className="px-4 py-3">Full Name</th>
+                  <th className="px-4 py-3">Job Title</th>
+                  <th className="px-4 py-3">Email</th>
+                  <th className="px-4 py-3">Phone Number</th>
+                  <th className="px-4 py-3">Department</th>
+                  <th className="px-4 py-3">Manager</th>
+                  <th className="px-4 py-3">Salary</th>
+                  <th className="px-4 py-3">Hire Date</th>
+                  <th className="px-4 py-3">Actions</th>
+                </tr>
+              </thead>
+            </table>
+            <p className="text-center text-lg text-gray-500 mt-10">
+              No employees added yet.
+            </p>
+          </div>
         ) : (
           <div className="overflow-x-auto rounded-lg shadow-lg">
             <table className="w-full table-auto border-collapse mt-8">
