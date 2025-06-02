@@ -60,7 +60,7 @@ const EmployeeForm: React.FC = () => {
   useEffect(() => {
     if (employeeId) {
       axios
-        .get(`http://teambase-production.up.railway.app/api/employees/${employeeId}`)
+        .get(`https://teambase-production.up.railway.app/api/employees/${employeeId}`)
         .then((response) => {
           const employee = response.data;
           const formattedDate = employee.hireDate
@@ -212,12 +212,12 @@ const EmployeeForm: React.FC = () => {
         }
 
         await axios.patch(
-          `http://teambase-production.up.railway.app/api/employees/${employeeId}`,
+          `https://teambase-production.up.railway.app/api/employees/${employeeId}`,
           formData
         );
         setSuccess("Employee updated successfully!");
       } else {
-        await axios.post("http://teambase-production.up.railway.app/api/employees", formData);
+        await axios.post("https://teambase-production.up.railway.app/api/employees", formData);
         setSuccess("Employee added successfully!");
       }
 
