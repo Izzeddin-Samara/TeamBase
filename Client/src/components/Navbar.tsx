@@ -3,20 +3,23 @@ import LogoutButton from "./LogoutButton";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 
-
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [authChecked, setAuthChecked] = useState<boolean>(false);
 
   useEffect(() => {
     const user = localStorage.getItem("user");
     setIsLoggedIn(!!user);
+    setAuthChecked(true);
   }, []);
 
+  if (!authChecked) return null;
+
   return (
-    <nav className="w-full mt-8 ">
+    <nav className="w-full mt-6 ">
       <div className="max-w-[95%] mx-auto flex justify-between items-center h-7">
-        <Link to="/">
+        <Link to={isLoggedIn ? "/dashboard" : "/"}>
           <h1 className="text-3xl md:text-5xl font-bold cursor-pointer">
             Team<span className="text-blue-800">Base</span>
           </h1>
@@ -59,12 +62,12 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden bg-white shadow-lg py-4 px-6 flex flex-col mt-10 space-y-4 max-w-[80%] mx-auto">
           {isLoggedIn ? (
-            <LogoutButton setIsLoggedIn={setIsLoggedIn} />
+            <LogoutButton setIsLoggedIn={setIsOpen} />
           ) : (
             <>
               <Link
                 to="/login"
-                onClick={() => setIsOpen(false)} // close menu on click
+                onClick={() => setIsOpen(false)}
                 className="bg-blue-800 font-bold hover:bg-blue-900 p-3 text-lg text-white rounded-lg text-center"
               >
                 Login
