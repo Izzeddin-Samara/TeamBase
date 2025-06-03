@@ -18,7 +18,7 @@ const Navbar = () => {
 
   return (
     <nav className="w-full mt-6 ">
-      <div className="max-w-[90%] mx-auto flex justify-between items-center h-10">
+      <div className="max-w-[90%] mx-auto flex justify-between items-center h-5">
         <Link to={isLoggedIn ? "/dashboard" : "/"}>
           <h1 className="text-3xl md:text-4xl font-bold cursor-pointer">
             Team<span className="text-blue-800">Base</span>
