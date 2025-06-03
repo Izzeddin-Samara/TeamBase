@@ -38,6 +38,31 @@ const Home: React.FC = () => {
       ...prevData,
       [name]: value,
     }));
+
+    // Real-time validation
+    setErrors((prevErrors) => {
+      const newErrors = { ...prevErrors };
+
+      if (name === "email") {
+        if (!value) {
+          newErrors.email = "Email is required.";
+        } else if (!/\S+@\S+\.\S+/.test(value)) {
+          newErrors.email = "Please enter a valid email.";
+        } else {
+          newErrors.email = "";
+        }
+      }
+
+      if (name === "password") {
+        if (!value) {
+          newErrors.password = "Password is required.";
+        } else {
+          newErrors.password = "";
+        }
+      }
+
+      return newErrors;
+    });
   };
 
   const validateForm = (): boolean => {
