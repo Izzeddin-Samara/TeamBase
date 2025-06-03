@@ -5,6 +5,8 @@ import InputField from "./InputField";
 import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import Navbar from "./Navbar";
+import { FaCheckCircle } from "react-icons/fa";
+import { FaExclamationCircle } from "react-icons/fa";
 
 type FormData = {
   employeeId: string;
@@ -61,7 +63,9 @@ const EmployeeForm: React.FC = () => {
   useEffect(() => {
     if (employeeId) {
       axios
-        .get(`https://teambase-production.up.railway.app/api/employees/${employeeId}`)
+        .get(
+          `https://teambase-production.up.railway.app/api/employees/${employeeId}`
+        )
         .then((response) => {
           const employee = response.data;
           const formattedDate = employee.hireDate
@@ -216,13 +220,13 @@ const EmployeeForm: React.FC = () => {
           `https://teambase-production.up.railway.app/api/employees/${employeeId}`,
           formData
         );
-        setSuccess("Employee updated successfully!");
+        setSuccess("Employee updated successfully.");
       } else {
         await axios.post(
           "https://teambase-production.up.railway.app/api/employees",
           formData
         );
-        setSuccess("Employee added successfully!");
+        setSuccess("Employee added successfully.");
       }
 
       setError("");
@@ -239,7 +243,7 @@ const EmployeeForm: React.FC = () => {
 
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <div className="w-full min-h-screen flex items-center justify-center p-4">
         <div className="max-w-2xl w-full bg-blue-50 rounded-2xl shadow-2xl shadow-blue-900/15 p-8">
           <div className="flex items-center justify-between mb-8">
@@ -254,8 +258,17 @@ const EmployeeForm: React.FC = () => {
             </h1>
             <div className="w-14" />
           </div>
-          {error && <p className="text-red-700 text-center">{error}</p>}
-          {success && <p className="text-green-700 text-center">{success}</p>}
+          {error && (
+            <div className="bg-red-100 text-sm md:text-lg text-red-800 p-3 rounded-md border border-red-300 text-center items-center flex gap-2 justify-center">
+              <FaExclamationCircle size={20} /> {error}
+            </div>
+          )}
+
+          {success && (
+            <div className="bg-green-100 text-sm md:text-lg text-green-800 p-3 items-center rounded-md border border-green-300 text-center items-center flex gap-2 justify-center">
+              <FaCheckCircle size={20} /> {success}
+            </div>
+          )}
           <div className="grid grid-cols-1 gap-4 mt-8">
             <div className="w-full rounded-xl mx-auto">
               <form onSubmit={handleSubmit} className="text-center">
