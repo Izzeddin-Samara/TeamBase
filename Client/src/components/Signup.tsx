@@ -179,10 +179,11 @@ const Signup: React.FC = () => {
   return (
     <>
       <Navbar />
-      <div className="w-full min-h-screen flex items-start justify-center p-4 sm:p-8 md:p-14 mt-10">
-        <div className=" max-w-sm mt-10 md:mt-0 sm:max-w-xl mx-auto bg-purple-50 p-8 rounded-2xl shadow-blue-900/15 shadow-xl">
+      <div className="w-full min-h-screen flex items-start justify-center mt-5 p-4">
+        
+        <div className="md:mt-0 max-w-md w-full mx-auto bg-purple-50 p-8 rounded-2xl shadow-blue-900/15 shadow-xl ">
           <div className="grid grid-cols-1">
-            <h1 className="text-center text-2xl md:text-2xl font-bold mb-8">
+            <h1 className="text-center text-2xl md:text-2xl font-bold mb-2">
               Create New Account
             </h1>
 
@@ -198,7 +199,6 @@ const Signup: React.FC = () => {
             )}
 
             <form onSubmit={handleSubmit} className="text-center">
-              <div className="flex gap-2">
                 <div>
                   <InputField
                     type="text"
@@ -220,7 +220,6 @@ const Signup: React.FC = () => {
                     error={errors.lastName}
                   />
                 </div>
-              </div>
 
               <div className="mt-2">
                 <InputField
@@ -262,7 +261,7 @@ const Signup: React.FC = () => {
                 {loading ? "Signing up ..." : "Sign up"}
               </button>
 
-              <p className="text-center text-xs md:text-md mt-8">
+              <p className="text-center text-md md:text-md mt-5">
                 Already have an account?{" "}
                 <Link
                   className="text-blue-800 hover:underline ml-1"
