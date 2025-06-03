@@ -241,7 +241,7 @@ const EmployeeForm: React.FC = () => {
     <>
     <Navbar/>
       <div className="w-full min-h-screen flex items-center justify-center p-4">
-        <div className="max-w-2xl w-full bg-blue-50 rounded-2xl shadow-2xl shadow-blue-900/15 p-8 mt-10">
+        <div className="max-w-2xl w-full bg-blue-50 rounded-2xl shadow-2xl shadow-blue-900/15 p-8">
           <div className="flex items-center justify-between mb-8">
             <Link to="/dashboard">
               <button className="flex items-center gap-2 cursor-pointer text-sm md:text-md text-blue-700 font-semibold hover:underline">
