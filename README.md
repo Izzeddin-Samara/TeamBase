@@ -3,6 +3,14 @@
 ### 🔍 Overview
 **TeamBase** is a web application for managing team member information. It includes login and registration, and lets users add, edit, delete, and search employee records.
 
+### 🚀 Live Demo
+
+- **Client (React - Vite):** Deployed on [Vercel](https://vercel.com)  
+- **Server (Express):** Deployed on [Railway](https://railway.app)
+
+🔗 Try it here: [https://team-base-dd23.vercel.app/](https://team-base-dd23.vercel.app/)
+
+
 ### ✅ Features
 
 - User authentication (login and registration)
