@@ -92,6 +92,13 @@ JWT_SECRET=your_secret_key
 node server.js
 ```
 
+ ## 📬 Contact
+
+Feel free to reach out to me via the following:
+
+- **Email**: [izzidinsamara@gmail.com](mailto:izzidinsamara@gmail.com)
+- **LinkedIn**: [https://www.linkedin.com/in/izzeddin-samara/](https://www.linkedin.com/in/izzeddin-samara/)
+
 
 
 
