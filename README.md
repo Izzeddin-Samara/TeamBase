@@ -17,3 +17,34 @@
 - **Frontend:** React, TypeScript, Tailwind CSS
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB
+
+### 📸 Screenshots
+
+#### 🏠 Home
+![Home](https://github.com/Izzeddin-Samara/TeamBase/blob/main/Screenshots/Home.png)
+
+#### 🔐 Login
+![Login Page](https://github.com/Izzeddin-Samara/TeamBase/blob/main/Screenshots/Login.png)
+
+#### 📝 Signup
+![Signup](https://github.com/Izzeddin-Samara/TeamBase/blob/main/Screenshots/Signup.png)
+
+#### 📊 Dashboard
+![Dashboard](https://github.com/Izzeddin-Samara/TeamBase/blob/main/Screenshots/Dashboard.png)
+
+#### ➕ Add Employee
+![AddEmployee](https://github.com/Izzeddin-Samara/TeamBase/blob/main/Screenshots/AddEmployee.png)
+
+#### ✏️ Edit Employee
+![EditEmployee](https://github.com/Izzeddin-Samara/TeamBase/blob/main/Screenshots/EditEmployee.png)
+
+#### 🗑 Delete Employee
+![DeleteEmployee](https://github.com/Izzeddin-Samara/TeamBase/blob/main/Screenshots/DeleteEmployee.png)
+
+
+
+
+
+
+
+
