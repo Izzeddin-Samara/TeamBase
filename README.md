@@ -12,3 +12,8 @@
 - Search employees data
 - Responsive and clean user interface
 
+## 🛠️ Tech Stack
+
+- **Frontend:** React, TypeScript, Tailwind CSS
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB
