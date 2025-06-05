@@ -19,6 +19,8 @@ app.use(express.json()); // Allows JSON parsing
 
 const MongoStore = require("connect-mongo");
 
+app.set("trust proxy", 1);
+
 app.use(
   session({
     secret: process.env.SECRET_KEY,
