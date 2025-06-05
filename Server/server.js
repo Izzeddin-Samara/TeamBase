@@ -8,7 +8,13 @@ require("./config/db"); // Connects to MongoDB
 
 const app = express();
 
-app.use(cors()); // Enables Cross-Origin Resource Sharing
+app.use(
+  cors({
+    origin: "https://team-base-dd23.vercel.app/",
+    credentials: true, //
+  })
+);
+
 app.use(express.json()); // Allows JSON parsing
 
 const MongoStore = require("connect-mongo");
