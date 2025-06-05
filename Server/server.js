@@ -10,7 +10,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://team-base-dd23.vercel.app/",
+    origin: "https://team-base-dd23.vercel.app",
     credentials: true, //
   })
 );
@@ -29,7 +29,7 @@ app.use(
       maxAge: 1000 * 60 * 60 * 24,
       secure: true,
       httpOnly: true,
-      sameSite: "lax",
+      sameSite: "None",
     },
   })
 );
