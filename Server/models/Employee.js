@@ -8,11 +8,15 @@ const employeeSchema = new mongoose.Schema(
     phoneNumber: { type: String, required: true, unique: true },
     jobTitle: { type: String, required: true },
     department: { type: String, required: true },
-    hireDate: { type: Date }, 
+    hireDate: { type: Date },
     salary: { type: Number },
     manager: { type: String },
-    notes: { type: String }, 
-    user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+    notes: { type: String },
+    createdBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
   },
   { timestamps: true }
 );
