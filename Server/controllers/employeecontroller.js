@@ -16,7 +16,6 @@ module.exports.addEmployee = async (req, res) => {
       manager,
       profilePicture,
       notes,
-      user,
     } = req.body;
 
     const employee = await Employee.create({
@@ -32,7 +31,7 @@ module.exports.addEmployee = async (req, res) => {
       manager,
       profilePicture,
       notes,
-      user,
+      createdBy: req.session.userId,
     });
 
     res.status(201).json(employee);
@@ -71,11 +70,18 @@ module.exports.getEmployee = async (req, res) => {
 // Get all employees
 module.exports.getAllEmployees = async (req, res) => {
   try {
-    const allemployees = await Employee.find({});
-    res.status(200).json(allemployees);
+    if (!req.session.userId) {
+      return res.status(401).json({ error: "Unauthorized access" });
+    }
+
+    const userId = req.session.userId;
+
+    const userEmployees = await Employee.find({ createdBy: userId });
+
+    res.status(200).json(userEmployees);
   } catch (error) {
-    console.error("Get all employees failed:", error.message);
-    res.status(400).json({ error: "Failed to get all employees" });
+    console.error("Get user employees failed:", error.message);
+    res.status(400).json({ error: "Failed to get user employees" });
   }
 };
 
