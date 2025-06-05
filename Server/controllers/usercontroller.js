@@ -25,7 +25,14 @@ module.exports = {
   // Login Function
   login: async (req, res) => {
     try {
-      const user = await User.findOne({ email: req.body.email });
+      const users = await User.find({});
+      // Normalize email before querying
+      const email = req.body.email.trim().toLowerCase();
+
+      console.log("Incoming login email:", email);
+
+      const user = await User.findOne({ email });
+
       if (!user) return res.status(400).json({ error: "Email not found" });
 
       const correctPassword = await bcrypt.compare(
@@ -35,9 +42,7 @@ module.exports = {
       if (!correctPassword)
         return res.status(400).json({ error: "Invalid password" });
 
-      const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY, {
-        expiresIn: "1h",
-      });
+      req.session.userId = user._id;
 
       const userData = {
         _id: user._id,
@@ -45,9 +50,7 @@ module.exports = {
         email: user.email,
       };
 
-      res
-        .cookie("usertoken", token, { httpOnly: true })
-        .json({ msg: "success!", user: userData });
+      res.json({ msg: "Logged in successfully", user: userData });
     } catch (err) {
       res
         .status(500)
@@ -57,11 +60,15 @@ module.exports = {
 
   // Logout Function
   logout: (req, res) => {
-    res.clearCookie("usertoken");
-    res.json({ msg: "Logged out successfully" });
+    req.session.destroy((err) => {
+      if (err) {
+        return res.status(500).json({ error: "Logout failed" });
+      }
+      res.clearCookie("connect.sid");
+      res.json({ msg: "Logged out successfully" });
+    });
   },
 
-  // checkEmail Function
   checkEmail: async (req, res) => {
     const { email } = req.params;
     const { excludeId } = req.query;
