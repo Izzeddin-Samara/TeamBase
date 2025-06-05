@@ -1,4 +1,4 @@
-#  🤝 TeamBase
+# <img src="https://img.icons8.com/?size=100&id=22118&format=png&color=3953db" width="50"/> TeamBase
 
 ### 🔍 Overview
 **TeamBase** is a web application for managing team member information. It includes login and registration, and lets users add, edit, delete, and search employee records.
