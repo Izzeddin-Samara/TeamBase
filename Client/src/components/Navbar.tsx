@@ -62,7 +62,9 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden bg-white shadow-lg py-4 px-6 flex flex-col mt-10 space-y-4 max-w-[80%] mx-auto">
           {isLoggedIn ? (
-            <LogoutButton setIsLoggedIn={setIsOpen} />
+            <div className="flex justify-center">
+              <LogoutButton setIsLoggedIn={setIsOpen} />
+            </div>
           ) : (
             <>
               <Link
