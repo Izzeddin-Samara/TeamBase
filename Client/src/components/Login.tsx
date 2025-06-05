@@ -94,7 +94,7 @@ const Home: React.FC = () => {
         // Make a POST request to the backend
         const res = await axios.post(
           "https://teambase-production.up.railway.app/api/users/login",
-          formData
+          formData, {withCredentials: true}
         );
         console.log(res.data); // For debugging
 
