@@ -183,18 +183,18 @@ const Signup: React.FC = () => {
         
         <div className="md:mt-0 max-w-md w-full mx-auto bg-purple-50 p-8 rounded-2xl shadow-blue-900/15 shadow-xl ">
           <div className="grid grid-cols-1">
-            <h1 className="text-center text-2xl md:text-2xl font-bold mb-2">
+            <h1 className="text-center text-2xl md:text-3xl font-bold mb-2">
               Create New Account
             </h1>
 
             {error && (
-              <div className="bg-red-100 text-lg text-red-800 p-3 rounded-md border border-red-300 text-center flex gap-2 justify-center">
-                <FaExclamationCircle size={20} className="mt-1" /> {error}
+              <div className="bg-red-100 text-sm items-center text-red-800 p-3 rounded-md border border-red-300 text-center flex gap-2 justify-center">
+                <FaExclamationCircle size={15} /> {error}
               </div>
             )}
             {success && (
-              <div className="bg-green-100 text-lg text-green-800 p-3 rounded-md border border-green-300 text-center flex gap-2 justify-center">
-                {success} <FaCheckCircle size={20} className="mt-1" />
+              <div className="bg-green-100 text-sm items-center text-green-800 p-3 rounded-md border border-green-300 text-center flex gap-2 justify-center">
+                {success} <FaCheckCircle size={15} />
               </div>
             )}
 
