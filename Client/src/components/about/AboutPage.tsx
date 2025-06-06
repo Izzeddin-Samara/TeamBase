@@ -2,6 +2,7 @@ import Navbar from "../Navbar";
 import Aboutus from "./Aboutus";
 import Mission from "./Mission";
 import Vision from "./Vision";
+import OurValues from "./OurValues";
 
 export default function AboutPage() {
   return (
@@ -11,6 +12,7 @@ export default function AboutPage() {
         <Aboutus />
         <Mission />
         <Vision />
+        <OurValues/>
       </div>
     </>
   );
