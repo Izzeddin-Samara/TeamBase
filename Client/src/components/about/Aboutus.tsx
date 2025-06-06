@@ -1,7 +1,6 @@
 export default function Aboutus() {
   return (
     <>
-      <div className="max-w-7xl mx-auto py-30 ">
         <section>
           <h1 className="text-center text-3xl md:text-4xl text-blue-800 font-bold">
             About Us
@@ -17,7 +16,6 @@ export default function Aboutus() {
             giving you clarity and control.
           </p>
         </section>
-      </div>
     </>
   );
 }
