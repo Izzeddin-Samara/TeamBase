@@ -5,6 +5,7 @@ import Dashboard from "./components/Dashboard";
 import EmployeeForm from "./components/EmployeeForm";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
+import AboutPage from "./components/about/AboutPage";
 
 function App() {
   return (
@@ -12,12 +13,12 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/employee" element={<EmployeeForm />} />
           <Route path="/employee/:id" element={<EmployeeForm />} />
-
         </Routes>
         <Footer/>
       </Router>
