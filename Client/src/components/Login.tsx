@@ -15,7 +15,7 @@ type FormErrors = {
   password: string;
 };
 
-const Home: React.FC = () => {
+const Login: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     email: "",
     password: "",
@@ -181,4 +181,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default Login;
