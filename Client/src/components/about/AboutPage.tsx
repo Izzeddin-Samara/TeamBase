@@ -3,6 +3,7 @@ import Aboutus from "./Aboutus";
 import Mission from "./Mission";
 import Vision from "./Vision";
 import OurValues from "./OurValues";
+import TechStack from "./TechStack";
 
 export default function AboutPage() {
   return (
@@ -13,6 +14,7 @@ export default function AboutPage() {
         <Mission />
         <Vision />
         <OurValues/>
+        <TechStack/>
       </div>
     </>
   );
