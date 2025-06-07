@@ -9,7 +9,7 @@ const Home: React.FC = () => {
   return (
     <>
       <Navbar />
-      <div className="flex items-center h-[600px]">
+      <div className="flex items-center h-[700px]">
         <div className="text-center w-full">
           <h1 className="text-4xl  mx-auto font-bold sm:text-6xl lg:text-7xl leading-tight">
             Your Team, Organized.
