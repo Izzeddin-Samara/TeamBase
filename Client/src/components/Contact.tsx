@@ -4,6 +4,20 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { FaEnvelope } from "react-icons/fa";
 import InputField from "./InputField";
 
+type formData = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+type formErrors = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+type formField = "name" | "email" | "message";
+
 const Contact: React.FC = () => {
   return (
     <>
