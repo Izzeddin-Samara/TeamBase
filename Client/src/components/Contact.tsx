@@ -62,6 +62,17 @@ const Contact: React.FC = () => {
     setErrors((prev) => ({ ...prev, [name]: message }));
   };
 
+   const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    // Validate the field immediately for format errors
+    validateField(name, value);
+  };
+
   return (
     <>
       <Navbar />
@@ -94,6 +105,9 @@ const Contact: React.FC = () => {
                       type="text"
                       name="name"
                       placeholder="eg: John Doe"
+                      value={formData.name}
+                      onChange={handleChange}
+                      error={errors.name}
                     />
                   </div>
                   <div>
@@ -103,6 +117,9 @@ const Contact: React.FC = () => {
                       type="text"
                       name="email"
                       placeholder="eg: johndoe@gmail.com"
+                      value={formData.email}
+                      onChange={handleChange}
+                      error={errors.email}
                     />
                   </div>
                   <div>
@@ -111,9 +128,12 @@ const Contact: React.FC = () => {
                     <textarea
                       id="message"
                       name="message"
-                      className="w-full h-48 p-3 bg-gray-100 border text-sm outline-none rounded-lg border-gray-300 mt-2 resize-none focus:ring-3 focus:ring-blue-800"
+                      className="w-full h-48 p-3 bg-gray-100 border text-md outline-none rounded-lg border-gray-300 mt-2 resize-none focus:ring-3 focus:ring-blue-800"
                       placeholder="Write your message here"
+                      value={formData.message}
+                      onChange={handleChange}
                     ></textarea>
+                    {errors && <p className="text-red-600 text-md">{errors.message}</p>}
                   </div>
 
                   <button
