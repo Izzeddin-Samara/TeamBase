@@ -122,10 +122,10 @@ const Contact: React.FC = () => {
       <Navbar />
 
       {/* Contact Header */}
-      <div className=" max-w-6xl mx-auto h-auto p-8 ">
+      <div className=" max-w-6xl mx-auto h-auto p-4 ">
         <div className="flex items-center h-[200px]">
           <div className="text-center w-full">
-            <h1 className="text-4xl font-bold mb-4 text-blue-800 lg:text-5xl md:text-3xl sm:text-lg">
+            <h1 className="text-3xl font-bold mb-4 text-blue-800 lg:text-5xl md:text-3xl">
               Contact Us
             </h1>
             <p className="text-md sm:text-lg lg:text-lg text-gray-600 mt-8 mx-auto">
@@ -149,7 +149,7 @@ const Contact: React.FC = () => {
         {/* Contact body*/}
         <div className="w-full">
           <div className="max-w-7xl bg-gray-100 mx-auto h-auto p-4 rounded-lg shadow-xl ">
-            <div className="grid grid-cols-1 sm:grid-col-2 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
               {/* Contact Form*/}
               <div>
                 <form
