@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import LogoutButton from "./LogoutButton";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
@@ -38,15 +39,36 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-4 items-center space-x-8">
           <>
-            <Link className="text-xl hover:text-blue-700" to="/">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-xl text-blue-800 font-semibold"
+                  : "text-xl hover:text-blue-800"
+              }
+            >
               Home
-            </Link>
-            <Link className="text-xl hover:text-blue-700" to="/about">
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-xl text-blue-800 font-semibold"
+                  : "text-xl hover:text-blue-800"
+              }
+            >
               About
-            </Link>
-            <Link className="text-xl hover:text-blue-700" to="/contact">
+            </NavLink>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-xl text-blue-800 font-semibold"
+                  : "text-xl hover:text-blue-800"
+              }
+            >
               Contact
-            </Link>
+            </NavLink>
 
             {isLoggedIn ? (
               <LogoutButton setIsLoggedIn={setIsLoggedIn} />
@@ -74,15 +96,36 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden bg-gray-200 rounded-lg shadow-lg py-4 px-6 flex flex-col mx-auto text-center mt-5 space-y-4 max-w-[100%]">
           <>
-            <Link className="text-lg hover:text-blue-700" to="/">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-lg text-blue-800 font-semibold"
+                  : "text-lg hover:text-blue-800"
+              }
+            >
               Home
-            </Link>
-            <Link className="text-lg hover:text-blue-700" to="/about">
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-lg text-blue-800 font-semibold"
+                  : "text-lg hover:text-blue-800"
+              }
+            >
               About
-            </Link>
-            <Link className="text-lg hover:text-blue-700" to="/contact">
+            </NavLink>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-lg text-blue-800 font-semibold"
+                  : "text-lg hover:text-blue-800"
+              }
+            >
               Contact
-            </Link>
+            </NavLink>
 
             {isLoggedIn ? (
               <LogoutButton setIsLoggedIn={setIsLoggedIn} />
