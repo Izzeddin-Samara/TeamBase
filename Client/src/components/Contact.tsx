@@ -3,6 +3,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaEnvelope } from "react-icons/fa";
 import InputField from "./InputField";
+import { useState } from "react";
 
 type formData = {
   name: string;
@@ -19,6 +20,21 @@ type formErrors = {
 type formField = "name" | "email" | "message";
 
 const Contact: React.FC = () => {
+  const [formData, setFormData] = useState<formData>({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [errors, setErrors] = useState<formErrors>({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [success, setSuccess] = useState<string>("");
+  const [error, setError] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
   return (
     <>
       <Navbar />
