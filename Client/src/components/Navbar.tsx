@@ -19,7 +19,7 @@ const Navbar = () => {
 
   return (
     <nav className="w-full fixed bg-blue-100 p-4">
-      <div className="max-w-[95%] mx-auto flex justify-between items-center h-10 p-8">
+      <div className="max-w-[95%] mx-auto flex justify-between items-center h-10">
         <Link to={isLoggedIn ? "/dashboard" : "/"}>
           <h1 className="text-3xl md:text-4xl font-bold cursor-pointer">
             Team<span className="text-blue-800">Base</span>
