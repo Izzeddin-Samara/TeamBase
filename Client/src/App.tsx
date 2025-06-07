@@ -7,11 +7,13 @@ import Home from "./components/Home";
 import Footer from "./components/Footer";
 import AboutPage from "./components/about/AboutPage";
 import Contact from "./components/Contact";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <>
       <Router>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutPage />} />
