@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const userRoutes = require("./routes/userroutes"); // Import user routes
 const employeeRoutes = require("./routes/employeeroutes");
+const contactRoutes = require("./routes/contactroutes");
 const session = require("express-session");
 
 require("./config/db"); // Connects to MongoDB
@@ -38,6 +39,7 @@ app.use(
 
 app.use("/api/users", userRoutes);
 app.use("/api/employees", employeeRoutes);
+app.use("/api/contact", contactRoutes);
 
 // Start the server
 const PORT = process.env.PORT || 8000;
