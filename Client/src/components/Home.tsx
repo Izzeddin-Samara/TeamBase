@@ -21,7 +21,7 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      <div className="w-full mt-25 py-16">
+      <div className="w-full  md:mt-7">
         <div className="max-w-6xl mx-auto p-4">
           <h1 className="text-3xl md:text-5xl font-bold text-center mb-16">
             Why TeamBase?
@@ -76,7 +76,7 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      <div className="md:mt-30 w-full flex  items-center justify-center py-20">
+      <div className="md:mt-30 w-full flex items-center justify-center py-30">
         <div className="text-center">
           <h1 className="text-xl md:text-4xl  font-bold w-3/4 mx-auto">
             Frustrated with juggling multiple spreadsheets and losing control over your team’s data management?
