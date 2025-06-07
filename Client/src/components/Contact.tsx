@@ -4,6 +4,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { FaEnvelope } from "react-icons/fa";
 import InputField from "./InputField";
 import { useState } from "react";
+import axios from "axios";
 
 type formData = {
   name: string;
@@ -86,6 +87,36 @@ const Contact: React.FC = () => {
     return isValid;
   };
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (validateForm()) {
+      try {
+        setLoading(true);
+        const res = await axios.post(
+          "https://teambase-production.up.railway.app/api/contact",
+          formData
+        );
+
+        console.log(res)
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
+
+        setError("");
+        setSuccess(
+          "Thanks for contacting us! we will get back to you as soon as possible"
+        );
+      } catch (error) {
+        console.log("Error", error);
+        setError("Something went wrong, please try again later");
+      } finally {
+        setLoading(false);
+      }
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -103,6 +134,17 @@ const Contact: React.FC = () => {
             </p>
           </div>
         </div>
+        {success && (
+          <div className="bg-green-200 p-4 text-center mb-4 rounded-lg shadow-xl">
+            <p className="text-green-700">{success}</p>
+          </div>
+        )}
+
+        {error && (
+          <div className="bg-red-200 p-4 text-center mb-4 rounded-lg shadow-xl">
+            <p className="text-red-700">{error}</p>
+          </div>
+        )}
 
         {/* Contact body*/}
         <div className="w-full">
@@ -110,7 +152,10 @@ const Contact: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-col-2 lg:grid-cols-2 gap-8">
               {/* Contact Form*/}
               <div>
-                <form className="space-y-6 p-4 text-center">
+                <form
+                  onSubmit={handleSubmit}
+                  className="space-y-6 p-4 text-center"
+                >
                   <div>
                     <label className="text-xl">Name</label>
 
@@ -153,7 +198,7 @@ const Contact: React.FC = () => {
                     type="submit"
                     className=" w-full bg-blue-800 hover:bg-blue-900 text-white p-4 rounded-lg font-bold focus:ring-4 focus:ring-blue-300 cursor-pointer text-xl"
                   >
-                    {" "}
+                    {loading ? "Sending your Message" : "Send Message"}
                   </button>
                 </form>
               </div>
