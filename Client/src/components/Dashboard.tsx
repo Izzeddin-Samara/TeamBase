@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Navbar from "./Navbar";
-import { FaCheckCircle } from "react-icons/fa";
 
 type Employee = {
   _id: string;
@@ -90,8 +89,8 @@ const Dashboard: React.FC = () => {
 
         {error && <p className="text-red-600 text-center mb-4">{error}</p>}
         {success && (
-          <div className="w-2/4 mx-auto bg-green-100 text-lg text-green-800 p-3 rounded-md border border-green-300 text-center flex gap-2 justify-center">
-            {success} <FaCheckCircle size={20} className="mt-1" />
+          <div className="bg-green-200 p-4 text-center mb-4 rounded-lg shadow-xl">
+            <p className="text-green-700">{success}</p>
           </div>
         )}
         <div className="flex flex-col sm:flex-row sm:justify-between items-center mt-20 gap-4 sm:gap-0">
