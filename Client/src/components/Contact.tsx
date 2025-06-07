@@ -73,6 +73,19 @@ const Contact: React.FC = () => {
     validateField(name, value);
   };
 
+  const validateForm = (): boolean => {
+    let isValid = true;
+
+    Object.entries(formData).forEach(([key, value]) => {
+      validateField(key, value);
+      if (value === "" || errors[key as formField]) {
+        isValid = false;
+      }
+    });
+
+    return isValid;
+  };
+
   return (
     <>
       <Navbar />
