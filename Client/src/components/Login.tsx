@@ -119,17 +119,22 @@ const Login: React.FC = () => {
     <>
       <Navbar />
       <div className="w-full h-screen flex items-start p-4 mt-15">
-        <div className="max-w-sm w-full mx-auto bg-blue-50 rounded-2xl shadow-xl shadow-blue-900/15 p-8">
+        <div className="max-w-md w-full mx-auto bg-blue-50 rounded-2xl shadow-xl shadow-blue-900/15 p-8">
           <div className="grid grid-cols-1">
             <h1 className="text-center text-2xl font-bold mb-4">
               Login to your Account
             </h1>
             <div className="w-full md:mt-0 rounded-xl md4 mx-auto">
-              {error && <p className="text-red-700 text-center">{error}</p>}{" "}
-              {/* Display error */}
-              {success && (
-                <p className="text-green-700 text-center">{success}</p>
-              )}{" "}
+               {error && (
+              <div className="bg-red-200 text-sm p-4 text-center mb-4 rounded-lg shadow-xl">
+                 {error}
+              </div>
+            )}
+            {success && (
+              <div className="bg-green-200 text-sm p-4 text-center mb-4 rounded-lg shadow-xl">
+                {success}
+              </div>
+            )}
               {/* Display success */}
               <form onSubmit={handleSubmit}>
                 <div>

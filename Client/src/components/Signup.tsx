@@ -3,8 +3,6 @@ import InputField from "./InputField";
 import { useState, useCallback } from "react";
 import axios from "axios";
 import debounce from "lodash.debounce";
-import { FaCheckCircle } from "react-icons/fa";
-import { FaExclamationCircle } from "react-icons/fa";
 import Navbar from "./Navbar";
 
 type FormData = {
@@ -188,13 +186,13 @@ const Signup: React.FC = () => {
             </h1>
 
             {error && (
-              <div className="bg-red-100 text-sm items-center text-red-800 p-3 rounded-md border border-red-300 text-center flex gap-2 justify-center">
-                <FaExclamationCircle size={15} /> {error}
+              <div className="bg-red-200 text-sm p-4 text-center mb-4 rounded-lg shadow-xl">
+                 {error}
               </div>
             )}
             {success && (
-              <div className="bg-green-100 text-sm items-center text-green-800 p-3 rounded-md border border-green-300 text-center flex gap-2 justify-center">
-                {success} <FaCheckCircle size={15} />
+              <div className="bg-green-200 text-sm p-4 text-center mb-4 rounded-lg shadow-xl">
+                {success}
               </div>
             )}
 

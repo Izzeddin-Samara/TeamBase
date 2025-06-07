@@ -5,8 +5,6 @@ import InputField from "./InputField";
 import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import Navbar from "./Navbar";
-import { FaCheckCircle } from "react-icons/fa";
-import { FaExclamationCircle } from "react-icons/fa";
 
 type FormData = {
   employeeId: string;
@@ -64,7 +62,8 @@ const EmployeeForm: React.FC = () => {
     if (employeeId) {
       axios
         .get(
-          `https://teambase-production.up.railway.app/api/employees/${employeeId}`, {withCredentials: true}
+          `https://teambase-production.up.railway.app/api/employees/${employeeId}`,
+          { withCredentials: true }
         )
         .then((response) => {
           const employee = response.data;
@@ -218,13 +217,15 @@ const EmployeeForm: React.FC = () => {
 
         await axios.patch(
           `https://teambase-production.up.railway.app/api/employees/${employeeId}`,
-          formData, {withCredentials: true}
+          formData,
+          { withCredentials: true }
         );
         setSuccess("Employee updated successfully.");
       } else {
         await axios.post(
           "https://teambase-production.up.railway.app/api/employees",
-          formData, {withCredentials: true}
+          formData,
+          { withCredentials: true }
         );
         setSuccess("Employee added successfully.");
       }
@@ -259,14 +260,13 @@ const EmployeeForm: React.FC = () => {
             <div className="w-14" />
           </div>
           {error && (
-            <div className="bg-red-100 text-sm md:text-lg text-red-800 p-3 rounded-md border border-red-300 text-center items-center flex gap-2 justify-center">
-              <FaExclamationCircle size={20} /> {error}
+            <div className="bg-red-200 text-sm p-4 text-center mb-4 rounded-lg shadow-xl">
+              {error}
             </div>
           )}
-
           {success && (
-            <div className="bg-green-100 text-sm md:text-lg text-green-800 p-3 items-center rounded-md border border-green-300 text-center items-center flex gap-2 justify-center">
-              <FaCheckCircle size={20} /> {success}
+            <div className="bg-green-200 text-sm p-4 text-center mb-4 rounded-lg shadow-xl">
+              {success}
             </div>
           )}
           <div className="grid grid-cols-1 gap-4 mt-8">

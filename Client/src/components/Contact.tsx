@@ -135,13 +135,13 @@ const Contact: React.FC = () => {
           </div>
         </div>
         {success && (
-          <div className="bg-green-200 p-4 text-center mb-4 rounded-lg shadow-xl">
+          <div className="bg-green-200 text-sm p-4 text-center mb-4 rounded-lg shadow-xl">
             <p className="text-green-700">{success}</p>
           </div>
         )}
 
         {error && (
-          <div className="bg-red-200 p-4 text-center mb-4 rounded-lg shadow-xl">
+          <div className="bg-red-200 p-4 text-sm text-center mb-4 rounded-lg shadow-xl">
             <p className="text-red-700">{error}</p>
           </div>
         )}

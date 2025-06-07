@@ -41,7 +41,8 @@ const Dashboard: React.FC = () => {
     const fetchEmployees = async () => {
       try {
         const res = await axios.get(
-          "https://teambase-production.up.railway.app/api/employees", {withCredentials: true}
+          "https://teambase-production.up.railway.app/api/employees",
+          { withCredentials: true }
         );
         setEmployees(res.data);
       } catch (err) {
@@ -57,7 +58,8 @@ const Dashboard: React.FC = () => {
     if (!selectedEmployee) return;
     try {
       await axios.delete(
-        `https://teambase-production.up.railway.app/api/employees/${selectedEmployee._id}`, {withCredentials: true}
+        `https://teambase-production.up.railway.app/api/employees/${selectedEmployee._id}`,
+        { withCredentials: true }
       );
       setEmployees((prev) =>
         prev.filter((emp) => emp._id !== selectedEmployee._id)
@@ -87,10 +89,14 @@ const Dashboard: React.FC = () => {
           Employees List
         </h1>
 
-        {error && <p className="text-red-600 text-center mb-4">{error}</p>}
+        {error && (
+          <div className="bg-red-200 w-96 mx-auto text-sm p-4 text-center mb-4 rounded-lg shadow-xl">
+            {error}
+          </div>
+        )}
         {success && (
-          <div className="bg-green-200 p-4 text-center mb-4 rounded-lg shadow-xl">
-            <p className="text-green-700">{success}</p>
+          <div className="bg-green-200 w-96 text-sm p-4 text-center mb-4 rounded-lg shadow-xl">
+            {success}
           </div>
         )}
         <div className="flex flex-col sm:flex-row sm:justify-between items-center mt-20 gap-4 sm:gap-0">
