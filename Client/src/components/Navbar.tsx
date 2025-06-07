@@ -18,7 +18,7 @@ const Navbar = () => {
 
   return (
     <nav className="w-full mt-6 ">
-      <div className="max-w-[90%] mx-auto flex justify-between items-center h-5">
+      <div className="max-w-[95%] mx-auto flex justify-between items-center h-10">
         <Link to={isLoggedIn ? "/dashboard" : "/"}>
           <h1 className="text-3xl md:text-4xl font-bold cursor-pointer">
             Team<span className="text-blue-800">Base</span>
@@ -32,57 +32,79 @@ const Navbar = () => {
           aria-label="Toggle menu"
         >
           {/* Hamburger icon */}
-          {isOpen ? <FaTimes/> : <FaBars/>}
+          {isOpen ? <FaTimes /> : <FaBars />}
         </button>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-4 items-center">
-          {isLoggedIn ? (
-            <LogoutButton setIsLoggedIn={setIsLoggedIn} />
-          ) : (
-            <>
-              <Link
-                to="/login"
-                className="bg-blue-800 font-bold hover:bg-blue-900 p-3 md:p-4 text-md md:text-lg text-white rounded-lg focus:ring-4 focus:ring-blue-300 cursor-pointer"
-              >
-                Login
-              </Link>
-              <Link
-                to="/signup"
-                className="bg-gray-800 font-bold hover:bg-gray-950 p-3 md:p-4 text-md md:text-lg text-white rounded-lg focus:ring-4 focus:ring-blue-300 cursor-pointer"
-              >
-                Sign Up
-              </Link>
-            </>
-          )}
+        <div className="hidden md:flex space-x-4 items-center space-x-8">
+          <>
+            <Link className="text-xl hover:text-blue-700" to="/">
+              Home
+            </Link>
+            <Link className="text-xl hover:text-blue-700" to="/about">
+              About
+            </Link>
+            <Link className="text-xl hover:text-blue-700" to="/contact">
+              Contact
+            </Link>
+
+            {isLoggedIn ? (
+              <LogoutButton setIsLoggedIn={setIsLoggedIn} />
+            ) : (
+              <div className="flex gap-6">
+                <Link
+                  to="/login"
+                  className="bg-blue-800 font-bold hover:bg-blue-900 p-3 md:p-4 text-md md:text-lg text-white rounded-lg focus:ring-4 focus:ring-blue-300 cursor-pointer"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/signup"
+                  className="bg-gray-800 font-bold hover:bg-gray-950 p-3 md:p-4 text-md md:text-lg text-white rounded-lg focus:ring-4 focus:ring-blue-300 cursor-pointer"
+                >
+                  Sign Up
+                </Link>
+              </div>
+            )}
+          </>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white shadow-lg py-4 px-6 flex flex-col mt-10 space-y-4 max-w-[80%] mx-auto">
-          {isLoggedIn ? (
-            <div className="flex justify-center">
-              <LogoutButton setIsLoggedIn={setIsOpen} />
-            </div>
-          ) : (
-            <>
-              <Link
-                to="/login"
-                onClick={() => setIsOpen(false)}
-                className="bg-blue-800 font-bold hover:bg-blue-900 p-3 text-lg text-white rounded-lg text-center"
-              >
-                Login
-              </Link>
-              <Link
-                to="/signup"
-                onClick={() => setIsOpen(false)}
-                className="bg-gray-800 font-bold hover:bg-gray-950 p-3 text-lg text-white rounded-lg text-center"
-              >
-                Sign Up
-              </Link>
-            </>
-          )}
+        <div className="md:hidden bg-gray-200 rounded-lg shadow-lg py-4 px-6 flex flex-col mx-auto text-center mt-5 space-y-4 max-w-[100%]">
+          <>
+            <Link className="text-lg hover:text-blue-700" to="/">
+              Home
+            </Link>
+            <Link className="text-lg hover:text-blue-700" to="/about">
+              About
+            </Link>
+            <Link className="text-lg hover:text-blue-700" to="/contact">
+              Contact
+            </Link>
+
+            {isLoggedIn ? (
+              <LogoutButton setIsLoggedIn={setIsLoggedIn} />
+            ) : (
+              <div className="flex flex-col gap-4 justify-center mx-auto">
+                <Link
+                  to="/login"
+                  onClick={() => setIsOpen(false)}
+                  className="bg-blue-800 font-bold w-24 hover:bg-blue-900 p-3 md:p-4 text-md md:text-lg text-white rounded-lg focus:ring-4 focus:ring-blue-300 cursor-pointer"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/signup"
+                  onClick={() => setIsOpen(false)}
+                  className="bg-gray-800 font-bold w-24 hover:bg-gray-950 p-3 md:p-4 text-md md:text-lg text-white rounded-lg focus:ring-4 focus:ring-blue-300 cursor-pointer"
+                >
+                  Sign Up
+                </Link>
+              </div>
+            )}
+          </>
         </div>
       )}
     </nav>
