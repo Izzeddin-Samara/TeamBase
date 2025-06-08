@@ -254,10 +254,10 @@ const EmployeeForm: React.FC = () => {
                 Back
               </button>
             </Link>
-            <h1 className="text-xl md:text-2xl font-bold text-gray-800">
+            <h1 className="text-md md:text-2xl font-bold text-gray-800">
               {employeeId ? "Edit Employee" : "Add Employee"}
             </h1>
-            <div className="w-14" />
+            <div className="w-1" />
           </div>
           {error && (
             <div className="bg-red-200 text-sm p-4 text-center mb-4 rounded-lg shadow-xl">
