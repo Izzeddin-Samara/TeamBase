@@ -43,7 +43,7 @@ const Navbar = () => {
               to="/"
               className={({ isActive }) =>
                 isActive
-                  ? "text-xl text-blue-800 font-semibold"
+                  ? "text-xl underline text-blue-800 font-semibold"
                   : "text-xl hover:text-blue-800"
               }
             >
@@ -53,7 +53,7 @@ const Navbar = () => {
               to="/about"
               className={({ isActive }) =>
                 isActive
-                  ? "text-xl text-blue-800 font-semibold"
+                  ? "text-xl underline  text-blue-800 font-semibold"
                   : "text-xl hover:text-blue-800"
               }
             >
@@ -63,7 +63,7 @@ const Navbar = () => {
               to="/contact"
               className={({ isActive }) =>
                 isActive
-                  ? "text-xl text-blue-800 font-semibold"
+                  ? "text-xl underline  text-blue-800 font-semibold"
                   : "text-xl hover:text-blue-800"
               }
             >
@@ -100,7 +100,7 @@ const Navbar = () => {
               to="/"
               className={({ isActive }) =>
                 isActive
-                  ? "text-lg text-blue-800 font-semibold"
+                  ? "text-lg underline  text-blue-800 font-semibold"
                   : "text-lg hover:text-blue-800"
               }
             >
@@ -110,7 +110,7 @@ const Navbar = () => {
               to="/about"
               className={({ isActive }) =>
                 isActive
-                  ? "text-lg text-blue-800 font-semibold"
+                  ? "text-lg underline  text-blue-800 font-semibold"
                   : "text-lg hover:text-blue-800"
               }
             >
@@ -120,7 +120,7 @@ const Navbar = () => {
               to="/contact"
               className={({ isActive }) =>
                 isActive
-                  ? "text-lg text-blue-800 font-semibold"
+                  ? "text-lg underline  text-blue-800 font-semibold"
                   : "text-lg hover:text-blue-800"
               }
             >
