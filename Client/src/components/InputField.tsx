@@ -31,7 +31,7 @@ const InputField: React.FC<InputProps> = ({
             : "border-gray-300 focus:ring-blue-800"
         }`}
       />
-      {error && <span className="text-red-600 text-md mt-1">{error}</span>}
+      {error && <span className="text-red-600 text-[14px] mt-2">{error}</span>}
     </div>
   );
 };
