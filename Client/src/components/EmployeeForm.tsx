@@ -245,7 +245,7 @@ const EmployeeForm: React.FC = () => {
   return (
     <>
       <Navbar />
-      <div className="w-full min-h-screen flex items-center justify-center p-4 mt-4">
+      <div className="w-full min-h-screen flex items-center justify-center p-4 py-30 md:py-25">
         <div className="max-w-2xl w-full bg-blue-50 rounded-2xl shadow-2xl shadow-blue-900/15 p-8">
           <div className="flex items-center justify-between mb-8">
             <Link to="/dashboard">
