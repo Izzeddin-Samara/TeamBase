@@ -31,6 +31,9 @@
 #### 🏠 Home
 ![Home](https://github.com/Izzeddin-Samara/TeamBase/blob/main/Screenshots/Home.png)
 
+#### 💬 Contact
+![Contact](https://github.com/Izzeddin-Samara/TeamBase/blob/main/Screenshots/Contact.png)
+
 #### 🔐 Login
 ![Login Page](https://github.com/Izzeddin-Samara/TeamBase/blob/main/Screenshots/Login.png)
 
