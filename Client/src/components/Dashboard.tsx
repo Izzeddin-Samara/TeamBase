@@ -84,18 +84,18 @@ const Dashboard: React.FC = () => {
   return (
     <>
       <Navbar />
-      <div className="p-6 min-h-screen">
+      <div className="p-6 min-h-screen py-16">
         <h1 className="text-3xl md:text-5xl font-extrabold mt-15 text-center mb-20">
           Employees List
         </h1>
 
         {error && (
-          <div className="bg-red-200 w-96 mx-auto text-sm p-4 text-center mb-4 rounded-lg shadow-xl">
+          <div className="bg-red-200  mx-auto text-sm p-4 text-center mb-4 rounded-lg shadow-xl">
             {error}
           </div>
         )}
         {success && (
-          <div className="bg-green-200 w-96 text-sm p-4 text-center mb-4 rounded-lg shadow-xl">
+          <div className="bg-green-200  text-sm p-4 text-center mb-4 rounded-lg shadow-xl">
             {success}
           </div>
         )}
