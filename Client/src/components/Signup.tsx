@@ -177,7 +177,7 @@ const Signup: React.FC = () => {
   return (
     <>
       <Navbar />
-      <div className="w-full min-h-screen flex items-start justify-center py-40 md:py-25 p-4">
+      <div className="w-full min-h-screen flex items-start justify-center py-25 md:py-25 p-4">
         
         <div className="md:mt-0 max-w-md w-full mx-auto bg-purple-50 p-8 rounded-2xl shadow-blue-900/15 shadow-xl ">
           <div className="grid grid-cols-1">

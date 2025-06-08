@@ -118,7 +118,7 @@ const Login: React.FC = () => {
   return (
     <>
       <Navbar />
-      <div className="w-full h-screen flex items-start p-4 py-40">
+      <div className="w-full h-screen flex items-start p-4 py-30">
         <div className="max-w-md w-full mx-auto bg-blue-50 rounded-2xl shadow-xl shadow-blue-900/15 p-8">
           <div className="grid grid-cols-1">
             <h1 className="text-center text-2xl font-bold mb-4">
