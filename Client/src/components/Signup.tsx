@@ -192,7 +192,7 @@ const Signup: React.FC = () => {
             )}
             {success && (
               <div className="bg-green-200 text-sm p-4 text-center mb-4 rounded-lg shadow-xl">
-                {success}
+                {success}, now you can <Link className="underline hover:no-underline text-green-700" to="/login">Login</Link>
               </div>
             )}
 
