@@ -82,7 +82,7 @@ const Navbar = () => {
                 </Link>
                 <Link
                   to="/signup"
-                  className="bg-gray-800 font-bold hover:bg-gray-950 p-3 md:p-4 text-md md:text-lg text-white rounded-lg focus:ring-4 focus:ring-blue-300 cursor-pointer"
+                  className="bg-gray-800 font-bold hover:bg-gray-950 p-3 md:p-4 text-md md:text-lg text-white rounded-lg focus:ring-4 focus:ring-gray-300 cursor-pointer"
                 >
                   Sign Up
                 </Link>
@@ -141,7 +141,7 @@ const Navbar = () => {
                 <Link
                   to="/signup"
                   onClick={() => setIsOpen(false)}
-                  className="bg-gray-800 font-bold w-24 hover:bg-gray-950 p-3 md:p-4 text-md md:text-lg text-white rounded-lg focus:ring-4 focus:ring-blue-300 cursor-pointer"
+                  className="bg-gray-800 font-bold w-24 hover:bg-gray-950 p-3 md:p-4 text-md md:text-lg text-white rounded-lg focus:ring-4 focus:ring-gray-300 cursor-pointer"
                 >
                   Sign Up
                 </Link>
