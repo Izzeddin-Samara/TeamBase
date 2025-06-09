@@ -96,10 +96,9 @@ MAILJET_API_KEY=your_mailjet_api_key
 MAILJET_SECRET_KEY=your_mailjet_secret_key
 
 ```
-🗄️ You should use [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) to create a free cluster and get your connection string.
-📨 Create [Mailjet](https://www.mailjet.com/) account (if you haven’t already) and generate your API and Secret keys from the dashboard.
-
+- 🗄️ You should use [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) to create a free cluster and get your connection string.
 - 🔐 Make sure your SECRET_KEY is a strong, random string.
+- 📨 Create [Mailjet](https://www.mailjet.com/) account (if you haven’t already) and generate your API and Secret keys from the dashboard.
 - 🛠️ Don’t forget to replace `<db_password>` in your MongoDB URI.
 
 5. Start the server
