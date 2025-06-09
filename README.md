@@ -88,14 +88,14 @@ cd Server
 npm install
 ```
 3. Rename the .env.example file in the Server directory to .env
-4. Update .env file with your own MongoDB URL and secret key
+4. Update .env file with your own MongoDB URL and Secret Key
 ```bash
 MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_secret_key
+SECRET_KEY=your_secret_key
 ```
 🗄️ You should use [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) to create a free cluster and get your connection string.
 
-- 🔐 Make sure your JWT_SECRET is a strong, random string.
+- 🔐 Make sure your SECRET_KEY is a strong, random string.
 - 🛠️ Don’t forget to replace `<db_password>` in your MongoDB URI.
 
 5. Start the server
