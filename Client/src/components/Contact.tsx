@@ -191,7 +191,7 @@ const Contact: React.FC = () => {
                       value={formData.message}
                       onChange={handleChange}
                     ></textarea>
-                    {errors && <p className="text-red-600 text-md">{errors.message}</p>}
+                    {errors && <p className="text-red-600 text-[14px]">{errors.message}</p>}
                   </div>
 
                   <button
