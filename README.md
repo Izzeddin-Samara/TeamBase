@@ -89,7 +89,7 @@ cd Server
 npm install
 ```
 3. Rename the .env.example file in the Server directory to .env
-4. Update .env file with your own MongoDB URL and Secret Key
+4. Update .env file with your own MongoDB URL, Secret Key, and Mailjet API and SECRET Keys
 ```bash
 MONGO_URI=your_mongodb_connection_string
 SECRET_KEY=your_secret_key
