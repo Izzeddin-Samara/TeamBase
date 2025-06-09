@@ -18,6 +18,7 @@
 - Edit existing employee information
 - Delete employees
 - Search employees data
+- Contact form powered by Mailjet
 - Responsive and clean user interface
 
 ### 🛠️ Tech Stack
