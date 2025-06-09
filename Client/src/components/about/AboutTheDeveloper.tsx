@@ -42,7 +42,7 @@ export default function AboutTheDeveloper() {
         <ul className="flex gap-4 justify-center">
           <li>
             <a
-              className="hover:text-gray-600"
+              className="hover:text-gray-600" target="_blank" rel="noopener noreferrer"
               href="https://github.com/Izzeddin-Samara"
             >
               <FaGithub size={25} />
@@ -50,7 +50,7 @@ export default function AboutTheDeveloper() {
           </li>
           <li>
             <a
-              className="hover:text-gray-600"
+              className="hover:text-gray-600" target="_blank" rel="noopener noreferrer"
               href="https://www.linkedin.com/in/izzeddin-samara"
             >
               <FaLinkedin size={25} />
@@ -66,7 +66,7 @@ export default function AboutTheDeveloper() {
           </li>
           <li>
             <a
-              className="hover:text-gray-600"
+              className="hover:text-gray-600" target="_blank" rel="noopener noreferrer"
               href="https://api.whatsapp.com/send/?phone=00972595484832&text&type=phone_number&app_absent=0"
             >
               <FaWhatsapp size={25} className="social-icon" />
