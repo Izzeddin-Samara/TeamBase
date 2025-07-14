@@ -6,7 +6,7 @@
 ### 🚀 Live Demo
 
 - **Client (React - Vite):** Deployed on [Vercel](https://vercel.com)  
-- **Server (Express):** Deployed on [Railway](https://railway.app)
+- **Server (Express):** Deployed on [Render](https://render.com/)
 
 🔗 Try it here: [https://team-base-dd23.vercel.app/](https://team-base-dd23.vercel.app/)
 
