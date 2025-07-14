@@ -62,7 +62,7 @@ const EmployeeForm: React.FC = () => {
     if (employeeId) {
       axios
         .get(
-          `https://teambase-production.up.railway.app/api/employees/${employeeId}`,
+          `https://teambase-1.onrender.com/api/employees/${employeeId}`,
           { withCredentials: true }
         )
         .then((response) => {
@@ -216,14 +216,14 @@ const EmployeeForm: React.FC = () => {
         }
 
         await axios.patch(
-          `https://teambase-production.up.railway.app/api/employees/${employeeId}`,
+          `https://teambase-1.onrender.com/api/employees/${employeeId}`,
           formData,
           { withCredentials: true }
         );
         setSuccess("Employee updated successfully.");
       } else {
         await axios.post(
-          "https://teambase-production.up.railway.app/api/employees",
+          "https://teambase-1.onrender.com/api/employees",
           formData,
           { withCredentials: true }
         );

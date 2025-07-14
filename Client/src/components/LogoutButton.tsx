@@ -17,7 +17,7 @@ const LogoutButton: React.FC<LogoutButtonProps> = () => {
       setLoading(true);
 
       // Call the logout API
-      await axios.post("https://teambase-production.up.railway.app/api/users/logout");
+      await axios.post("https://teambase-1.onrender.com/api/users/logout");
 
       // Clear user data from localStorage
       localStorage.removeItem("user");

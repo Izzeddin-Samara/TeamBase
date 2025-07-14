@@ -83,7 +83,7 @@ const Signup: React.FC = () => {
     debounce(async (email: string) => {
       try {
         const res = await axios.get(
-          `https://teambase-production.up.railway.app/api/users/check-email/${email}`,
+          `https://teambase-1.onrender.com/api/users/check-email/${email}`,
           {
             params: { email },
           }
@@ -148,7 +148,7 @@ const Signup: React.FC = () => {
       try {
         setLoading(true);
         const res = await axios.post(
-          "https://teambase-production.up.railway.app/api/users/register",
+          "https://teambase-1.onrender.com/api/users/register",
           formData
         );
         console.log(res.data);

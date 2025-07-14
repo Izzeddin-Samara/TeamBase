@@ -41,7 +41,7 @@ const Dashboard: React.FC = () => {
     const fetchEmployees = async () => {
       try {
         const res = await axios.get(
-          "https://teambase-production.up.railway.app/api/employees",
+          "https://teambase-1.onrender.com/api/employees",
           { withCredentials: true }
         );
         setEmployees(res.data);
@@ -58,7 +58,7 @@ const Dashboard: React.FC = () => {
     if (!selectedEmployee) return;
     try {
       await axios.delete(
-        `https://teambase-production.up.railway.app/api/employees/${selectedEmployee._id}`,
+        `https://teambase-1.onrender.com/api/employees/${selectedEmployee._id}`,
         { withCredentials: true }
       );
       setEmployees((prev) =>

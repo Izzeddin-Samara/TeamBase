@@ -93,7 +93,7 @@ const Contact: React.FC = () => {
       try {
         setLoading(true);
         const res = await axios.post(
-          "https://teambase-production.up.railway.app/api/contact",
+          "https://teambase-1.onrender.com/api/contact",
           formData
         );
 
