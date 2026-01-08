@@ -111,7 +111,7 @@ node server.js
 
 Feel free to reach out to me via the following:
 
-- **Email**: [izzidinsamara@gmail.com](mailto:izzidinsamara@gmail.com)
+- **Email**: [izzeddinsamara@outlook.com](mailto:izzeddinsamara@outlook.com)
 - **LinkedIn**: [https://www.linkedin.com/in/izzeddin-samara/](https://www.linkedin.com/in/izzeddin-samara/)
 
 
