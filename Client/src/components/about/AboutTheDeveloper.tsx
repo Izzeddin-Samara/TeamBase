@@ -59,7 +59,7 @@ export default function AboutTheDeveloper() {
           <li>
             <a
               className="hover:text-gray-600"
-              href="mailto:izzidinsamara@gmail.com"
+              href="mailto:izzeddinsamara@outlook.com"
             >
               <FaEnvelope size={25} />
             </a>
